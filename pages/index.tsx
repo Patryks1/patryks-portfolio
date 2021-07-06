@@ -1,29 +1,14 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import React from 'react';
-import dbConnect from '../util/mongodb';
 
-interface Props {
-  serverMessage: string;
-}
-
-const Home: NextPage<Props> = ({ serverMessage }): JSX.Element => {
+const Home: NextPage = (): JSX.Element => {
   return (
     <React.Fragment>
       <main className="containers">
-        <h1>{serverMessage}</h1>
+        <h1>Test</h1>
       </main>
     </React.Fragment>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  await dbConnect();
-
-  return {
-    props: {
-      serverMessage: 'Dynamic Server Message'
-    }
-  };
 };
 
 export default Home;
