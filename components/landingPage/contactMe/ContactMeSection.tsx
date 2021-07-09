@@ -4,7 +4,7 @@ import { TextBox, TextArea, Button } from '../../UI';
 
 const ContactMeSection = (): JSX.Element => {
   return (
-    <section className="container mx-auto p-20 lg:px-0">
+    <section className="container mx-auto p-20 lg:px-20">
       <SectionTitle title="Contact Me" />
       <p className="text-center px-5 lg:px-60 mt-20">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nisi soluta quos ex, ullam
