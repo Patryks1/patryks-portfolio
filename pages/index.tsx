@@ -2,7 +2,12 @@ import { NextPage } from 'next';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { LandingSection, AboutMeSection, ContactMeSection } from '../components/landingPage';
+import {
+  LandingSection,
+  AboutMeSection,
+  ContactMeSection,
+  MyWorkSection
+} from '../components/landingPage';
 
 const Home: NextPage = (): JSX.Element => {
   return (
@@ -21,9 +26,7 @@ const Home: NextPage = (): JSX.Element => {
       <main className="text-white flex flex-col space-y-20 overflow-hidden">
         <LandingSection />
         <AboutMeSection />
-        <section className="container mx-auto  h-screen">
-          <h1 className="text-pink-500 text-5xl font-bold text-center sm:text-right">My Work</h1>
-        </section>
+        <MyWorkSection />
         <ContactMeSection />
       </main>
     </React.Fragment>
