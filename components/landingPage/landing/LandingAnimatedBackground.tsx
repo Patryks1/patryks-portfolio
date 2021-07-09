@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import useCanvas from '../../hooks/useCanvas';
+import useCanvas from '../../../hooks/useCanvas';
 
 class Line {
   x: number;
@@ -43,12 +43,11 @@ class Line {
 
 const LandingAnimatedBackground = (): JSX.Element => {
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
-  let animationId = 0;
   const canvasRef = useCanvas((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
     const lineArray = getLines(ctx);
 
     const animate = (): void => {
-      animationId = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
       lineArray.forEach((line) => {
         line.draw();
@@ -94,7 +93,6 @@ const LandingAnimatedBackground = (): JSX.Element => {
   };
 
   const onResize = (): void => {
-    cancelAnimationFrame(animationId);
     setCanvasSize({
       width: window.innerWidth,
       height: window.innerHeight

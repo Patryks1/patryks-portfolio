@@ -8,7 +8,7 @@ const LandingSection = (): JSX.Element => {
     <section className="relative">
       <LandingAnimatedBackground />
       <div className="flex flex-col absolute top-2/4 left-24">
-        <span className="font-bold uppercase tracking-widest">Full stack web developer</span>
+        <span className="font-bold uppercase tracking-widest">Full stack Software Developer</span>
         <h1 className="text-4xl lg:text-7xl font-bold text-pink-500">
           Patryk
           <br />
@@ -18,7 +18,7 @@ const LandingSection = (): JSX.Element => {
         <p>Lorem ipsum dolor sit amet...</p>
       </div>
 
-      <button className="absolute bottom-5 left-2/4">
+      <button className="absolute bottom-5 text-center w-full">
         <FontAwesomeIcon icon={faArrowAltCircleDown} className="text-5xl" />
       </button>
     </section>

@@ -16,7 +16,7 @@ const Layout = (props: IProps): JSX.Element => {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="author" content="Patryk Slowinski" />
       </Head>
-      <main className="bg-primary">{children}</main>
+      <main className="bg-primary antialiased">{children}</main>
     </React.Fragment>
   );
 };
