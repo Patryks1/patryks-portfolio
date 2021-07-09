@@ -4,7 +4,7 @@ import SkillTab from './SkillTab';
 const AboutMeSection = (): JSX.Element => {
   return (
     <section className="container mx-auto space-y-6 overflow-hidden pt-44">
-      <h1 className="text-pink-500 text-5xl font-bold text-center lg:text-left">About Me</h1>
+      <h1 className="text-pink-500 text-5xl font-bold text-center lg:text-left pb-16">About Me</h1>
       <div className="flex flex-col lg:flex-row text-center">
         <div className="flex flex-col flex-shrink-0 space-y-4">
           <img
@@ -12,7 +12,7 @@ const AboutMeSection = (): JSX.Element => {
             src="https://images.unsplash.com/photo-1625320014712-cc333e4e93a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
             alt="profile_pic"
           />
-          <h1>Patryk Slowinski</h1>
+          <h1 className="font-semibold">Patryk Slowinski</h1>
         </div>
 
         <div className="flex flex-col mt-10 lg:mt-0">
