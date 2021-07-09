@@ -16,6 +16,7 @@ const Layout = (props: IProps): JSX.Element => {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="author" content="Patryk Slowinski" />
+        <meta name="description" content="Patryk Slowinski personal portfolio" />
 
         <title>Patryk Slowinski | Portfolio</title>
 
@@ -23,10 +24,6 @@ const Layout = (props: IProps): JSX.Element => {
         <meta property="og:site_name" content="Patryk Slowinski | Portfolio" />
         <meta property="og:title" content="Patryk Slowinski | Portfolio" />
         <meta property="og:description" content="Patryk Slowinski personal portfolio" />
-        <meta
-          property="og:image"
-          content="http://free.pagepeeker.com/v2/thumbs.php?size=x&url=https%3A%2F%2Fpatryks.me"
-        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@PatrykSlowinskiPortfolio" />
