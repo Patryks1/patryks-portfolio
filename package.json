@@ -28,6 +28,7 @@
     "react-dom": "npm:@preact/compat",
     "react-scroll": "^1.8.2",
     "react-ssr-prepass": "npm:preact-ssr-prepass",
+    "react-stack-grid": "^0.7.1",
     "swr": "^0.5.6"
   },
   "devDependencies": {

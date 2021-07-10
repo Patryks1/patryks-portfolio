@@ -38,22 +38,26 @@
   -moz-transition: all 0.2s;
 }
 
-.box:hover {
+.box:hover,
+.active {
   top: -5px;
   left: -5px;
 }
 
-.box:hover:before {
+.box:hover:before,
+.active:before {
   border-left-width: 15px;
   border-top-width: 15px;
 }
 
-.box:hover:after {
+.box:hover:after,
+.active:after {
   border-top-width: 15px;
   border-left-width: 15px;
 }
 
-.box:hover .corner_bottom_right {
+.box:hover .corner_bottom_right,
+.active .corner_bottom_right {
   transform: rotate(45deg) scale(1.35);
   bottom: -4px;
 }
@@ -70,6 +74,5 @@
   -moz-transition: all 0.2s;
   background: #832755;
   position: absolute;
-  z-index: 0;
   transform-origin: 0% 0%;
 }
