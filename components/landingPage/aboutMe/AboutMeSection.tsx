@@ -1,29 +1,33 @@
 import React from 'react';
-import { SectionTitle } from '../../Shared';
+import { SectionTitle, FadeInSection } from '../../Shared';
 import SkillGrid from './SkillGrid';
 import SkillTab from './SkillTab';
 
 const AboutMeSection = (): JSX.Element => {
   return (
     <section className="container mx-auto space-y-6 overflow-hidden pt-44">
-      <SectionTitle title="About Me" />
+      <FadeInSection>
+        <SectionTitle title="About Me" />
+      </FadeInSection>
       <div className="flex flex-col lg:flex-row text-center">
-        <div className="flex flex-col flex-shrink-0 space-y-4">
+        <FadeInSection className="flex flex-col flex-shrink-0 space-y-4">
           <img
             className="w-80 h-80 object-center rounded-full mx-auto"
             src="./images/profile_pic.jpg"
             alt="profile_pic"
           />
           <h1 className="font-semibold">Patryk Slowinski</h1>
-        </div>
+        </FadeInSection>
 
         <div className="flex flex-col mt-10 lg:mt-0 space-y-10">
-          <p className="px-5 lg:px-32">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam repellat minus,
-            consequuntur hic sapiente rerum veniam, velit, natus cumque magni nihil tenetur officia
-            iure dicta quia quas fuga aliquid vero?
-          </p>
-          <div className="flex flex-col">
+          <FadeInSection className="px-5 lg:px-32">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam repellat minus,
+              consequuntur hic sapiente rerum veniam, velit, natus cumque magni nihil tenetur
+              officia iure dicta quia quas fuga aliquid vero?
+            </p>
+          </FadeInSection>
+          <FadeInSection className="flex flex-col">
             <h1 className="text-left px-20 text-pink-500 font-bold mb-2 flex justify-end text-xl">
               Skills
             </h1>
@@ -45,11 +49,10 @@ const AboutMeSection = (): JSX.Element => {
               <SkillTab skillName="Rest / Soap" years={4} />
               <SkillTab skillName="XML / JSON" years={4} />
             </SkillGrid>
-          </div>
-          <div className="">
+          </FadeInSection>
+          <FadeInSection className="flex flex-col">
             <h1 className="text-left px-20 text-pink-500 font-bold mb-2 text-xl">Tools</h1>
-            <p>TODO: Mindmap or some nice interactive list</p>
-          </div>
+          </FadeInSection>
         </div>
       </div>
     </section>

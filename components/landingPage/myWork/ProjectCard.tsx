@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { IProjectInformation } from '../../../interfaces/landingPage.interfaces';
 import Image from 'next/image';
+import { FadeInSection } from '../../Shared';
 
 interface IProjectCardProps {
   project: IProjectInformation;
@@ -28,7 +29,7 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
   };
 
   return (
-    <figure className="w-full">
+    <FadeInSection className="w-full">
       <button type="button" onClick={() => onProjectCardClicked()} className="relative w-full">
         <Image
           src={project.image}
@@ -45,7 +46,7 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
         )}
         {isShowingDetail && renderProjectDetail()}
       </button>
-    </figure>
+    </FadeInSection>
   );
 };
 

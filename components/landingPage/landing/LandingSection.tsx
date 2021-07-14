@@ -1,8 +1,9 @@
-import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import LandingAnimatedBackground from './LandingAnimatedBackground';
 
+// TODO: Animated text
 const LandingSection = (): JSX.Element => {
   return (
     <section className="relative">
@@ -18,8 +19,8 @@ const LandingSection = (): JSX.Element => {
         <p>Lorem ipsum dolor sit amet...</p>
       </div>
 
-      <button className="absolute bottom-5 text-center w-full">
-        <FontAwesomeIcon icon={faArrowAltCircleDown} className="text-5xl" />
+      <button className="absolute bottom-8 text-center w-full p-4 hover:text-pink-500 duration-500 ease-in-out">
+        <FontAwesomeIcon icon={faArrowDown} className="text-4xl animate-bounce" />
       </button>
     </section>
   );

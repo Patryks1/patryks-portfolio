@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SectionTitle } from '../../Shared';
+import { FadeInSection, SectionTitle } from '../../Shared';
 import StackGrid, { transitions } from 'react-stack-grid';
 import { withSize } from 'react-sizeme';
 import { FilterType, IProjectInformation } from '../../../interfaces/landingPage.interfaces';
@@ -82,15 +82,17 @@ const MyWorkSection = ({ size }): JSX.Element => {
 
   return (
     <section className="container mx-auto h-full">
-      <SectionTitle title="My Work" isFloatRight={true} />
+      <FadeInSection>
+        <SectionTitle title="My Work" isFloatRight={true} />
+      </FadeInSection>
       <div className="px-20 flex flex-col space-y-12">
-        <div className="flex space-x-1 md:space-x-4 justify-center lg:justify-end">
+        <FadeInSection className="flex space-x-1 md:space-x-4 justify-center lg:justify-end">
           <h1 className="text-white mt-1 mr-2">Filters:</h1>
           {renderFilter('All', FilterType.All)}
           {renderFilter('Frontend', FilterType.Frontend)}
           {renderFilter('Backend', FilterType.Backend)}
           {renderFilter('Hardware', FilterType.Hardware)}
-        </div>
+        </FadeInSection>
         <div className="h-full w-full">
           <StackGrid
             monitorImagesLoaded

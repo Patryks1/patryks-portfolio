@@ -16,7 +16,7 @@ class Line {
     this.y = y;
     this.offset = offset;
     this.radians = 0;
-    this.velocity = 0.01;
+    this.velocity = 0.001;
     this.ctx = ctx;
   }
 
@@ -83,7 +83,7 @@ const LandingAnimatedBackground = (): JSX.Element => {
         new Line(
           start.x + (unit + random) * i - 100,
           start.y + (i + random) * -3 + Math.sin(i) * unit - 150,
-          0.1 + 1 * i,
+          0.1 + 0.5 * i,
           ctx
         )
       );
