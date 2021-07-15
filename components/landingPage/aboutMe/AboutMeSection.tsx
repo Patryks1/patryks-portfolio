@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { SectionTitle, FadeInSection } from '../../Shared';
 import { OrbitControls, Sphere, Text, Line } from '@react-three/drei';
@@ -124,7 +124,7 @@ function TitleCopies({ layers }) {
 
 // Need sphere, Text with Line comp
 
-interface ILineWithTextProps {
+interface TextWrapperProps {
   text: string;
   position?: THREE.Vector3 | [number, number, number];
 }
@@ -133,65 +133,132 @@ interface TextMesh extends Mesh {
   color?: string;
 }
 
-const LineWithText = (props: ILineWithTextProps): JSX.Element => {
+const TextWrapper = (props: TextWrapperProps): JSX.Element => {
   const { text, position } = props;
   const { camera } = useThree();
   const textRef = useRef<TextMesh>();
+  const [positionState] = useState(() => new THREE.Vector3());
+  const [targetPosition] = useState(() => new THREE.Vector3());
 
-  let targetPosition: Vector3;
-  let shouldUpdateCamera: boolean;
+  let shouldUpdateCamera: boolean = false;
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (textRef.current !== undefined) {
       textRef.current.lookAt(camera.position);
+      //textRef.current.position.x = ;
+    }
+
+    lerpCameraToTarget();
+  });
+
+  // TODO: OnScroll set shouldUpdateTargertToFalse
+  // TODO: onClick go to target and keep focused intill scrolled / new input
+  const lerpCameraToTarget = (): void => {
+    if (!shouldUpdateCamera) {
+      return;
+    }
+
+    camera.lookAt(textRef.current.position);
+
+    positionState.set(
+      textRef.current.position.x,
+      textRef.current.position.y,
+      textRef.current.position.z - 10
+    );
+
+    if (camera.position.distanceTo(textRef.current.position) <= 10) {
+      shouldUpdateCamera = false;
+    }
+
+    camera.position.lerp(positionState, 0.1);
+  };
+
+  return (
+    <Text
+      color="white"
+      position={position}
+      scale={19}
+      ref={textRef}
+      onClick={(event) => {
+        targetPosition.set(
+          textRef.current.position.x - 10,
+          textRef.current.position.y - 10,
+          textRef.current.position.z - 10
+        );
+        shouldUpdateCamera = true;
+      }}
+      onPointerEnter={() => (textRef.current.color = 'red')}
+      onPointerLeave={() => (textRef.current.color = 'white')}>
+      {text}
+    </Text>
+  );
+};
+
+const SphereWrapper = (): JSX.Element => {
+  const sphereRef = useRef<Mesh>();
+  useFrame(({ clock }) => {
+    if (sphereRef.current !== undefined) {
+      sphereRef.current.rotation.z = clock.getElapsedTime() / 5;
     }
   });
 
   return (
-    <>
-      <Text
-        color="white"
-        position={position}
-        scale={19}
-        ref={textRef}
-        onClick={(event) => {
-          camera.lookAt(textRef.current.position);
-          camera.position.lerp(
-            new Vector3(
-              textRef.current.position.x,
-              textRef.current.position.y,
-              textRef.current.position.z - 10
-            ),
-            1
-          );
-        }}
-        onPointerEnter={() => (textRef.current.color = 'red')}
-        onPointerLeave={() => (textRef.current.color = 'white')}>
-        {text}
-      </Text>
-    </>
+    <Sphere scale={10} ref={sphereRef}>
+      <meshBasicMaterial attach="material" color="hotpink" wireframe />
+    </Sphere>
   );
 };
 
 const ToolsScene = (): JSX.Element => {
-  const tools = ['AWS', 'AZURE', 'Another one'];
+  const tools = ['Aws', 'Azure', 'Git', 'Postman', 'Visual studio code', 'Visual studio', 'Docker'];
+
+  const generateFionacciSpherePoints = (
+    samples: number,
+    radious: number,
+    randomizeHeight: boolean
+  ): Vector3[] => {
+    // from https://stackoverflow.com/a/26127012
+    radious = radious + 5;
+
+    let points: Vector3[] = [];
+    let offset: number = 2 / samples;
+    let increment: number = Math.PI * (3 - Math.sqrt(5));
+
+    for (let i = 0; i < samples; i++) {
+      const y: number = i * offset - 1 + offset / 2;
+      const distance: number = Math.sqrt(1 - Math.pow(y, 2));
+      const phi: number = (i % samples) * increment;
+
+      const x: number = Math.cos(phi) * distance;
+      const z: number = Math.sin(phi) * distance;
+
+      let radiousScale: number = radious;
+      if (randomizeHeight) {
+        radiousScale = radious + Math.random() * 15;
+      }
+
+      points.push(new Vector3(x * radiousScale, y * radiousScale, z * radiousScale));
+    }
+    return points;
+  };
+
+  let fibPoints: Vector3[] = useMemo(
+    () => generateFionacciSpherePoints(tools.length, 10, true),
+    []
+  );
+
+  console.log(fibPoints);
   return (
     <div style={{ width: '100%', height: 500 }}>
-      <Canvas camera={{ position: [0, 0, 20] }}>
+      <Canvas camera={{ position: [0, 0, 40] }}>
         <OrbitControls />
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Sphere scale={10}>
-          <meshBasicMaterial attach="material" color="hotpink" wireframe />
-        </Sphere>
-        <LineWithText text="AWS" position={[0, 0, 20]} />
-        <LineWithText text="Azure" position={[20, 0, 0]} />
-        <LineWithText text="Postman" position={[0, 20, 0]} />
-        <LineWithText text="Test" position={[20, 20, 20]} />
-        <LineWithText text="Test" position={[0, -20, 0]} />
-        <LineWithText text="Test" position={[0, 0, -20]} />
-        <LineWithText text="Test" position={[-20, 0, 0]} />
-        <LineWithText text="Test" position={[-20, -20, -20]} />
+        <SphereWrapper />
+
+        {fibPoints.map((pos, index) => (
+          <TextWrapper text={tools[index]} position={pos} />
+        ))}
       </Canvas>
     </div>
   );
