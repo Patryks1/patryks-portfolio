@@ -166,11 +166,11 @@ const TextWrapper = (props: TextWrapperProps): JSX.Element => {
       textRef.current.position.z - 10
     );
 
-    if (camera.position.distanceTo(textRef.current.position) <= 10) {
+    /*if (camera.position.distanceTo(textRef.current.position) <= 10) {
       shouldUpdateCamera = false;
-    }
+    }*/
 
-    camera.position.lerp(positionState, 0.1);
+    camera.position.lerp(positionState, 0.05);
   };
 
   return (
