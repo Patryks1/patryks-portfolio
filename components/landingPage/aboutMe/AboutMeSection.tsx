@@ -5,7 +5,7 @@ import { OrbitControls, Sphere, Text, Line } from '@react-three/drei';
 import SkillGrid from './SkillGrid';
 import SkillTab from './SkillTab';
 import * as THREE from 'three';
-import { Vector3 } from 'three';
+import { Mesh, Vector3 } from 'three';
 
 /*
 const Tools = (): JSX.Element => {
@@ -126,14 +126,20 @@ function TitleCopies({ layers }) {
 
 interface ILineWithTextProps {
   text: string;
-  position?: THREE.Vector3;
+  position?: THREE.Vector3 | [number, number, number];
+}
+
+interface TextMesh extends Mesh {
+  color?: string;
 }
 
 const LineWithText = (props: ILineWithTextProps): JSX.Element => {
   const { text, position } = props;
   const { camera } = useThree();
-  const textRef = useRef();
-  const lineRef = useRef();
+  const textRef = useRef<TextMesh>();
+
+  let targetPosition: Vector3;
+  let shouldUpdateCamera: boolean;
 
   useFrame(() => {
     if (textRef.current !== undefined) {
