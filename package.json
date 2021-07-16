@@ -17,6 +17,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@react-spring/three": "^9.2.4",
     "@react-three/cannon": "^2.5.0",
     "@react-three/drei": "^7.1.1",
     "mongoose": "^5.13.2",

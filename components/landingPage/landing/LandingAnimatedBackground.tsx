@@ -99,7 +99,12 @@ const LandingAnimatedBackground = (): JSX.Element => {
     });
   };
 
-  return <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height}></canvas>;
+  return (
+    <div className="relative">
+      <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height}></canvas>
+      <div className="blend-shadow absolute w-full h-full top-0 left-0"></div>
+    </div>
+  );
 };
 
 export default LandingAnimatedBackground;
