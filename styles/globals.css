@@ -77,12 +77,40 @@
   transform-origin: 0% 0%;
 }
 
-.fade-in-section {
+.fade-in-bottom {
   opacity: 0;
   transform: translate(0, 50%);
   visibility: hidden;
   transition: opacity 300ms ease-out, transform 300ms ease-out;
   will-change: opacity, visibility;
+  animation-delay: 300ms;
+}
+
+.fade-in-top {
+  opacity: 0;
+  transform: translate(0, -50%);
+  visibility: hidden;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  will-change: opacity, visibility;
+  animation-delay: 300ms;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translate(50%);
+  visibility: hidden;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  will-change: opacity, visibility;
+  animation-delay: 300ms;
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translate(-50%);
+  visibility: hidden;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  will-change: opacity, visibility;
+  animation-delay: 300ms;
 }
 
 .is-visible {

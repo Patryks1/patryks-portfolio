@@ -3,19 +3,27 @@ import React, { useEffect, useRef, useState } from 'react';
 interface IFadeInSectionProps {
   children: JSX.Element | JSX.Element[];
   className?: string;
+  delay?: number;
+  direction?: 'left' | 'right' | 'bottom' | 'top';
 }
 
 const FadeInSection = (props: IFadeInSectionProps): JSX.Element => {
-  const { children, className } = props;
+  const { children, className, delay, direction } = props;
   const domRef = useRef<HTMLElement>();
   const [isVisible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        setVisible(true);
-
-        observer.unobserve(domRef.current);
+        if (delay !== 0) {
+          setTimeout(() => {
+            setVisible(true);
+            observer.unobserve(domRef.current);
+          }, delay);
+        } else {
+          setVisible(true);
+          observer.unobserve(domRef.current);
+        }
       }
     });
 
@@ -27,7 +35,7 @@ const FadeInSection = (props: IFadeInSectionProps): JSX.Element => {
   return (
     <section
       ref={domRef}
-      className={`fade-in-section ${className} ${isVisible ? ' is-visible' : ''}`}>
+      className={`fade-in-${direction ?? 'bottom'} ${className} ${isVisible ? ' is-visible' : ''}`}>
       {children}
     </section>
   );

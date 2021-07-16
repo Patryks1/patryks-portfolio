@@ -5,13 +5,13 @@ import { TextBox, TextArea, Button } from '../../UI';
 const ContactMeSection = (): JSX.Element => {
   return (
     <section className="container mx-auto p-20 lg:px-20">
-      <FadeInSection>
+      <FadeInSection direction="right">
         <SectionTitle title="Contact Me" />
       </FadeInSection>
-      <FadeInSection>
+      <FadeInSection direction="right">
         <p className="text-center px-5 lg:px-60 mt-20">Have a question or want to work together?</p>
       </FadeInSection>
-      <FadeInSection>
+      <FadeInSection direction="right">
         <form className="w-full max-w-lg mx-auto mt-20">
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

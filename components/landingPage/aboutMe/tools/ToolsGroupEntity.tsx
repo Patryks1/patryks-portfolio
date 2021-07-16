@@ -16,17 +16,31 @@ const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
     'Aws',
     'Azure',
     'Git',
+    'Github',
     'Postman',
     'Visual studio code',
     'Visual studio',
     'Docker',
     'Jira',
-    'Github',
     'Confluence',
     'Slack',
     'Teams',
     'Trello',
-    'Web Dev tools'
+    'Browser Dev tools',
+    'Digital Ocean',
+    'Test Driven Development',
+    'Automated Tests',
+    'Unit tests',
+    'JSON',
+    'REST',
+    'XML',
+    'Linux',
+    'Appdynamics',
+    'SEQ',
+    'Splunk',
+    'RTL',
+    'CQRS',
+    'SOLID'
   ];
 
   const groupRef = useRef<Mesh>();
@@ -39,7 +53,7 @@ const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
     radius: number,
     randomizeHeight: boolean
   ): Vector3[] => {
-    radius = radius + 4;
+    radius = radius + 5;
 
     const points: Vector3[] = [];
     const offset: number = 2 / samples;
@@ -55,7 +69,7 @@ const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
 
       let radiusScale: number = radius;
       if (randomizeHeight) {
-        radiusScale = radius + Math.random() * 12;
+        radiusScale = radius + Math.random() * 17;
       }
 
       points.push(new Vector3(x * radiusScale, y * radiusScale, z * radiusScale));

@@ -19,9 +19,11 @@ const LandingSection = (): JSX.Element => {
         <p>Lorem ipsum dolor sit amet...</p>
       </div>
 
-      <button className="absolute bottom-8 text-center w-full p-4 hover:text-pink-500 duration-500 ease-in-out">
-        <FontAwesomeIcon icon={faArrowDown} className="text-4xl animate-bounce" />
-      </button>
+      <div className="flex justify-center">
+        <button className="absolute bottom-8 w-20 h-20 p-6 hover:text-pink-500 duration-500 ease-in-out">
+          <FontAwesomeIcon icon={faArrowDown} className="text-4xl animate-bounce" />
+        </button>
+      </div>
     </section>
   );
 };

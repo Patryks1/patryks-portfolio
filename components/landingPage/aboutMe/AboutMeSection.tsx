@@ -1,17 +1,25 @@
 import React from 'react';
 import { SectionTitle, FadeInSection } from '../../Shared';
 import SkillGrid from './SkillGrid';
-import SkillTab from './SkillTab';
 import ToolsScene from './tools/ToolsScene';
 
 const AboutMeSection = (): JSX.Element => {
+  const renderSkill = (skillName: string, icon: string, years: number, delay = 0): JSX.Element => (
+    <FadeInSection delay={delay} className="flex flex-col" direction="left">
+      <i className={`${icon} text-4xl`}></i>
+      <h1>
+        {skillName} <br /> ({years} Years)
+      </h1>
+    </FadeInSection>
+  );
+
   return (
     <section className="container mx-auto space-y-6 overflow-hidden pt-44">
-      <FadeInSection>
+      <FadeInSection direction="right">
         <SectionTitle title="About Me" />
       </FadeInSection>
       <div className="flex flex-col lg:flex-row text-center">
-        <FadeInSection className="flex flex-col flex-shrink-0 space-y-4">
+        <FadeInSection className="flex flex-col flex-shrink-0 space-y-4" direction="right">
           <img
             className="w-80 h-80 object-center rounded-full mx-auto"
             src="./images/profile_pic.jpg"
@@ -21,40 +29,41 @@ const AboutMeSection = (): JSX.Element => {
         </FadeInSection>
 
         <div className="flex flex-col mt-10 lg:mt-0 space-y-10">
-          <FadeInSection className="px-5 lg:px-32">
+          <FadeInSection className="px-5 lg:px-32" direction="left">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam repellat minus,
               consequuntur hic sapiente rerum veniam, velit, natus cumque magni nihil tenetur
               officia iure dicta quia quas fuga aliquid vero?
             </p>
           </FadeInSection>
-          <FadeInSection className="flex flex-col">
+          <div className="flex flex-col">
             <h1 className="text-left px-20 text-pink-500 font-bold mb-2 flex justify-end text-xl">
               Skills
             </h1>
             <SkillGrid className="px-20">
-              <SkillTab skillName="C# / ASP.NET" years={3} />
-              <SkillTab skillName="JS / TS" years={2} />
-              <SkillTab skillName="Node / React" years={2} />
-              <SkillTab skillName="Next.js / Express.js" years={3} />
+              {renderSkill('C# / ASP.NET', 'devicon-dotnetcore-plain', 3, 0)}
+              {renderSkill('TS / JS', 'devicon-typescript-plain', 3, 100)}
+              {renderSkill('React', 'devicon-react-plain', 3, 300)}
+              {renderSkill('Redux', 'devicon-redux-plain', 3, 200)}
             </SkillGrid>
             <SkillGrid className="mt-4">
-              <SkillTab skillName="Redis / Postgress" years={3} />
-              <SkillTab skillName="MongoDB / MySql" years={3} />
-              <SkillTab skillName="HTML / CSS / SCSS" years={3} />
-              <SkillTab skillName="Redux / Tailwind" years={2} />
+              {renderSkill('HTML / CSS', 'devicon-html-plain', 2, 300)}
+              {renderSkill('NextJs', 'devicon-nextjs-plain', 2, 0)}
+              {renderSkill('Node / Express.js', 'devicon-nodejs-plain', 3, 200)}
+              {renderSkill('C/C++', 'devicon-cplusplus-plain', 2, 100)}
             </SkillGrid>
             <SkillGrid className="mt-4">
-              <SkillTab skillName="AWS / Azure" years={3} />
-              <SkillTab skillName="UT / BDD / TDD" years={3} />
-              <SkillTab skillName="Rest / Soap" years={4} />
-              <SkillTab skillName="XML / JSON" years={4} />
+              {renderSkill('Redis', 'devicon-redis-plain', 3, 0)}
+              {renderSkill('Postgres', 'devicon-postgresql-plain', 3, 100)}
+              {renderSkill('MongoDB', 'devicon-mongodb-plain', 2, 200)}
+              {renderSkill('MySql', 'devicon-mysql-plain', 4, 300)}
             </SkillGrid>
-          </FadeInSection>
-          <FadeInSection className="flex flex-col">
+          </div>
+          <FadeInSection className="flex flex-col" direction="bottom">
             <h1 className="text-left px-20 text-pink-500 font-bold mb-2 text-xl">Tools</h1>
-
-            <ToolsScene />
+            <FadeInSection className="flex flex-col" direction="left">
+              <ToolsScene />
+            </FadeInSection>
           </FadeInSection>
         </div>
       </div>

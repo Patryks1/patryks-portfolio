@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import React, { Suspense, useState, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Environment, MeshDistortMaterial, PerspectiveCamera } from '@react-three/drei';
+import { Environment, MeshDistortMaterial } from '@react-three/drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
 import { Mesh } from 'three';

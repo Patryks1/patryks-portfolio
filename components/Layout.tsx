@@ -28,8 +28,16 @@ const Layout = (props: IProps): JSX.Element => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@PatrykSlowinskiPortfolio" />
         <meta name="twitter:creator" content="@slowinskiPat" />
+
+        {
+          // TODO: Replace this with package, SVG loader does not want to work might need some kind of plugin
+        }
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"
+        />
       </Head>
-      <main className="bg-primary antialiased">
+      <main className="bg-primary antialiased overflow-hidden">
         {children}
         <footer>
           <CopyRight />
