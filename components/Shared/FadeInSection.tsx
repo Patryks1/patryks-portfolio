@@ -29,7 +29,11 @@ const FadeInSection = (props: IFadeInSectionProps): JSX.Element => {
 
     observer.observe(domRef.current);
 
-    return () => observer.unobserve(domRef.current);
+    return () => {
+      if (observer && domRef.current) {
+        observer.unobserve(domRef.current);
+      }
+    };
   }, []);
 
   return (
