@@ -4,7 +4,7 @@ import { TextBox, TextArea, Button } from '../../UI';
 
 const ContactMeSection = (): JSX.Element => {
   return (
-    <section className="container mx-auto p-20 lg:px-20">
+    <section className="container mx-auto p-14 lg:px-20">
       <FadeInSection direction="right">
         <SectionTitle title="Contact Me" />
       </FadeInSection>

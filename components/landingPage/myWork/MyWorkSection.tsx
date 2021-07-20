@@ -27,8 +27,11 @@ const projects: IProjectInformation[] = [
       'I was curious to see if Quakes fast square root would be accurate and fast in C#, Spoiler its not',
     github: 'https://github.com/Patryks1/Quake-SquareRoot-CS-Test',
     tags: [FilterType.Backend]
-  },
-  {
+  }
+];
+
+/*
+{
     title: 'Smart Clock (WIP)',
     image: '/images/projects/screenshotTool.png',
     description: 'Work in progress',
@@ -42,7 +45,7 @@ const projects: IProjectInformation[] = [
     github: 'https://github.com/Patryks1/listivo',
     tags: [FilterType.Backend, FilterType.Frontend]
   }
-];
+*/
 
 const MyWorkSection = ({ size }): JSX.Element => {
   const { width } = size;
@@ -95,7 +98,7 @@ const MyWorkSection = ({ size }): JSX.Element => {
           {renderFilter('Backend', FilterType.Backend)}
           {renderFilter('Hardware', FilterType.Hardware)}
         </FadeInSection>
-        <div className="h-full w-full">
+        <FadeInSection className="h-full w-full">
           <StackGrid
             monitorImagesLoaded
             columnWidth={resolveColumnWidth()}
@@ -111,7 +114,7 @@ const MyWorkSection = ({ size }): JSX.Element => {
               }
             })}
           </StackGrid>
-        </div>
+        </FadeInSection>
       </div>
     </section>
   );

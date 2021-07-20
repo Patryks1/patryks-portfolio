@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei';
-import { useFrame, useThree } from '@react-three/fiber';
-import React from 'react';
+import { useThree } from '@react-three/fiber';
+import React, { useRef } from 'react';
 import { Vector3 } from 'three';
 
 interface ControlsWrapperProps {
@@ -14,7 +14,10 @@ const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
 
   const { camera, scene } = useThree();
 
-  useFrame(() => {
+  const controlsRef = useRef();
+
+  // TODO: When clicking on target, Lerp to it and look at it
+  /*useFrame(() => {
     lerpCameraToTarget();
   });
 
@@ -29,12 +32,14 @@ const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
     if (camera.position === targetPosition) {
       setHasTarget(false);
     }
-  };
+  };*/
 
   return (
     <OrbitControls
       enablePan={false}
-      maxZoom={200}
+      maxDistance={70}
+      minDistance={30}
+      ref={controlsRef}
       onWheel={() => {
         if (hasTarget) {
           targetPosition.set(0, 0, 0);
