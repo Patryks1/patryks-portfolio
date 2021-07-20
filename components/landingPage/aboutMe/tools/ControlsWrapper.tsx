@@ -34,23 +34,26 @@ const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
     }
   };*/
 
+  const resetCameraPosition = (): void => {
+    if (!hasTarget) return;
+
+    targetPosition.set(0, 0, 0);
+
+    camera.position.x = 0;
+    camera.position.y = 0;
+    camera.position.z = 40;
+    camera.lookAt(scene.position);
+    setHasTarget(false);
+  };
+
   return (
     <OrbitControls
       enablePan={false}
       maxDistance={70}
       minDistance={30}
       ref={controlsRef}
-      onWheel={() => {
-        if (hasTarget) {
-          targetPosition.set(0, 0, 0);
-
-          camera.position.x = 0;
-          camera.position.y = 0;
-          camera.position.z = 40;
-          camera.lookAt(scene.position);
-          setHasTarget(false);
-        }
-      }}
+      onWheel={() => resetCameraPosition()}
+      onPointerDown={() => resetCameraPosition()}
     />
   );
 };
