@@ -1,17 +1,22 @@
 import React from 'react';
+import { FadeInSection } from '../../Shared';
 
 interface ISkillTabProps {
   skillName: string;
+  icon: string;
   years: number;
+  delay: number;
 }
 
 const SkillTab = (props: ISkillTabProps): JSX.Element => {
-  const { skillName, years } = props;
+  const { skillName, icon, years, delay } = props;
   return (
-    <div className="box relative top-0 left-0 w-full p-2">
-      <div className="corner_bottom_right"></div>
-      {skillName} <br /> <span className="font-bold">{years} Years</span>
-    </div>
+    <FadeInSection delay={delay} className="flex flex-col hover:opacity-75" direction="left">
+      <i className={`${icon} text-4xl`}></i>
+      <h1>
+        {skillName} <br /> ({years} Years)
+      </h1>
+    </FadeInSection>
   );
 };
 
