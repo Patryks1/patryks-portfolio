@@ -36,7 +36,7 @@ const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
     'REST',
     'XML',
     'Linux',
-    'Appdynamics',
+    'App Dynamics',
     'SEQ',
     'Splunk',
     'RTL',
