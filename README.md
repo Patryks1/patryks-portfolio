@@ -2,7 +2,7 @@
 
 # About
 
-My Portodolio website with a soon to have integrated blog built in next.js. 
+My portfolio website built with react and next.js
 
 # Features
 
