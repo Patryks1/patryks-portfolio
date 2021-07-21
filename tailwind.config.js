@@ -11,11 +11,13 @@ module.exports = {
         primary: '#222831',
         secondary: {
           0: '#DDDDDD',
-          500: '#30475E',
+          500: '#e84393',
           200: '#F05454'
         }
       },
       textColor: {
+        primary: '#e84393',
+        secondary: '#ecf0f1',
         accent: '#30475E',
         white: '#DDDDDD',
         black: '#222831'

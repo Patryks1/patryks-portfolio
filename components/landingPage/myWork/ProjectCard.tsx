@@ -40,7 +40,7 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
         />
         {!isShowingDetail && (
           <h1 className="absolute top-0 w-full h-full flex justify-center items-center">
-            <span className="w-full py-1 bg-pink-500">{project.title}</span>
+            <span className="w-full py-1 bg-primary">{project.title}</span>
           </h1>
         )}
         {isShowingDetail && renderProjectDetail()}

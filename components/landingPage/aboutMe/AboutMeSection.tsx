@@ -3,6 +3,7 @@ import { SectionTitle, FadeInSection } from '../../Shared';
 import SkillGrid from './SkillGrid';
 import dynamic from 'next/dynamic';
 import SkillTab from './SkillTab';
+import MyExperience from './MyExperience/MyExperience';
 
 const ToolsScene = dynamic(() => import('./tools/ToolsScene'), {
   loading: () => <h1>Loading...</h1>
@@ -13,7 +14,7 @@ const AnimatedProfileScene = dynamic(() => import('./animatedProfilePic/Animated
 
 const AboutMeSection = (): JSX.Element => {
   return (
-    <section className="container mx-auto space-y-6 overflow-hidden pt-44">
+    <section className="container mx-auto space-y-6 overflow-hidden pt-44" id="aboutMe">
       <FadeInSection direction="right">
         <SectionTitle title="About Me" />
       </FadeInSection>
@@ -33,9 +34,7 @@ const AboutMeSection = (): JSX.Element => {
             </p>
           </FadeInSection>
           <div className="flex flex-col">
-            <h1 className="text-left px-20 text-pink-500 font-bold mb-2 flex justify-end text-xl">
-              Skills
-            </h1>
+            <h1 className="px-20 text-primary font-bold mb-2 flex justify-end text-xl">Skills</h1>
             <SkillGrid className="px-20">
               <SkillTab
                 skillName="C# / ASP.NET"
@@ -70,12 +69,10 @@ const AboutMeSection = (): JSX.Element => {
               <SkillTab skillName="MySql" icon="devicon-mysql-plain" years={4} delay={300} />
             </SkillGrid>
           </div>
-          <FadeInSection className="flex flex-col" direction="bottom">
-            <h1 className="text-left px-20 text-pink-500 font-bold mb-2 text-xl">Tools</h1>
-            <FadeInSection className="flex flex-col" direction="left">
-              <ToolsScene />
-            </FadeInSection>
-          </FadeInSection>
+          <div className="flex flex-col">
+            <ToolsScene />
+            <MyExperience />
+          </div>
         </div>
       </div>
     </section>

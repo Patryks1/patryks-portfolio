@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .box {
-  background: #ec4899;
+  background: #e84393;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
 }
@@ -16,7 +16,7 @@
   left: 100%;
   top: 0;
   border: 10px transparent solid;
-  border-left-color: #5e1d3d;
+  border-left-color: #46142c;
   border-bottom-width: 0;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -30,7 +30,7 @@
   top: 100%;
   left: 0;
   border: 10px transparent solid;
-  border-top-color: #8e2b5c;
+  border-top-color: #74224a;
   border-right-width: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

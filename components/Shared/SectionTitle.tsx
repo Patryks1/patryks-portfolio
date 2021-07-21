@@ -9,7 +9,7 @@ const SectionTitle = (props: ISectionTitle): JSX.Element => {
 
   return (
     <h1
-      className={`text-pink-500 text-5xl font-bold text-center ${
+      className={`text-primary text-5xl font-bold text-center ${
         isFloatRight ? 'lg:text-right' : 'lg:text-left'
       } pb-16`}>
       {title}

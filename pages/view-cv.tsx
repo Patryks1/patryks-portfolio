@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import React from 'react';
 
-const Home: NextPage = (): JSX.Element => {
+const ViewCV: NextPage = (): JSX.Element => {
   return (
     <React.Fragment>
       <section>
@@ -11,4 +11,4 @@ const Home: NextPage = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default ViewCV;

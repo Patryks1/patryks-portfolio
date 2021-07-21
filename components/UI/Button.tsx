@@ -10,7 +10,7 @@ const Button = (props: IButtonProps): JSX.Element => {
   return (
     <>
       <button
-        className={`shadow bg-pink-500 hover:bg-pink-400 float-right focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded ${className}`}
+        className={`shadow bg-primary hover:opacity-80 float-right focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded ${className}`}
         type="button">
         {text}
       </button>

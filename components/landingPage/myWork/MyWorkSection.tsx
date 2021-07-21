@@ -90,7 +90,7 @@ const MyWorkSection = ({ size }): JSX.Element => {
       </FadeInSection>
       <div className="px-20 flex flex-col space-y-12">
         <FadeInSection
-          className="flex space-x-1 md:space-x-4 justify-center lg:justify-end"
+          className="flex space-x-1 md:space-x-3 justify-center lg:justify-end"
           direction="left">
           <h1 className="text-white mt-1 mr-2">Filters:</h1>
           {renderFilter('All', FilterType.All)}

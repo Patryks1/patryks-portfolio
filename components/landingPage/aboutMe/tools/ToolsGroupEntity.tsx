@@ -24,6 +24,7 @@ const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
     'Jira',
     'Confluence',
     'Slack',
+    'Async',
     'Teams',
     'Trello',
     'Browser Dev tools',
