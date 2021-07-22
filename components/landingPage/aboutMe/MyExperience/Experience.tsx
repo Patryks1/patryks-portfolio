@@ -15,7 +15,9 @@ const Experience = (props: IExperienceProps): JSX.Element => {
   const isLeftPosition: boolean = position === 'left';
 
   const renderTag = (value: string): JSX.Element => (
-    <h1 className="px-2 m-1 bg-black text-white rounded-md hover:opacity-80 leading-loose cursor-pointer">
+    <h1
+      className="px-2 m-1 bg-black text-white rounded-md hover:opacity-80 leading-loose cursor-pointer"
+      key={value.replace(/\s/g, '')}>
       {value}
     </h1>
   );

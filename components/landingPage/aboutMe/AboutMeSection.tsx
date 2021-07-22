@@ -18,7 +18,7 @@ const AboutMeSection = (): JSX.Element => {
       <FadeInSection direction="right">
         <SectionTitle title="About Me" />
       </FadeInSection>
-      <div className="flex flex-col lg:flex-row text-center">
+      <div className="flex flex-col lg:flex-row text-center w-full">
         <FadeInSection className="flex flex-col flex-shrink-0 space-y-4" direction="right">
           <AnimatedProfileScene />
           <h1 className="font-semibold">Patryk Slowinski</h1>

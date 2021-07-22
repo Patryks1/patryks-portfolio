@@ -4,7 +4,7 @@ import AnimatedProfilePic from './AnimatedProfilePic';
 
 const AnimatedProfileScene = (): JSX.Element => {
   return (
-    <div className="w-full h-2/6">
+    <div className="w-full h-1/4">
       <Canvas camera={{ position: [0, 0, 20] }}>
         <Suspense fallback={null}>
           <AnimatedProfilePic />
