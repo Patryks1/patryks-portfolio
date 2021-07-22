@@ -20,7 +20,7 @@
     "@react-spring/three": "^9.2.4",
     "@react-three/cannon": "^2.5.0",
     "@react-three/drei": "^7.2.1",
-    "mongoose": "^5.13.2",
+    "mongoose": "^5.13.3",
     "next": "^10.2.3",
     "next-images": "^1.8.1",
     "react": "^17.0.2",
