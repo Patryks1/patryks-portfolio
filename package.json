@@ -37,7 +37,7 @@
     "@react-three/fiber": "^7.0.6",
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
+    "@testing-library/react": "^12.0.0",
     "@types/gtag.js": "^0.0.7",
     "@types/mongoose": "^5.11.97",
     "@types/react": "^17.0.13",
