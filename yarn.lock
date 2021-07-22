@@ -854,10 +854,10 @@
     cannon-es "^0.18.0"
     cannon-es-debugger "^0.1.4"
 
-"@react-three/drei@^7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.1.1.tgz#76505bea6caa0b4f56caac896a7bb80c7b5a4b5a"
-  integrity sha512-rx0xoQ0nqy+HGY05+/iFyTv0bjSUVaGhj9xFrAL4ec6k42PLhtIhhKCtWMe+gDcR2dlLLpIEu+XELo1Ur1SmvA==
+"@react-three/drei@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-7.2.1.tgz#e7cbfaba00ca37d7c0b7982fcd43aaafb37c4170"
+  integrity sha512-B++BFNnwLVv2sG+m2lAOlrt6VTXusCynK/tIc+v4TuBa/kcIbN92nNYNzQCRKj5UnKSkn5kq9kw9PP+gDF6Gmg==
   dependencies:
     "@babel/runtime" "^7.11.2"
     blob-polyfill "^5.0.20210201"
@@ -868,7 +868,7 @@
     react-merge-refs "^1.0.0"
     stats.js "^0.17.0"
     three-mesh-bvh "^0.4.1"
-    three-stdlib "^2.3.0"
+    three-stdlib "^2.3.1"
     troika-three-text "^0.42.0"
     use-asset "^1.0.4"
     utility-types "^3.10.0"
@@ -7574,7 +7574,7 @@ three-mesh-bvh@^0.4.1:
   resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.4.1.tgz#ba0bf1dac7cbd41f2132c8446545c8ad9fbeb892"
   integrity sha512-1ALlGVjArZpi0SdqZhjwFA3DZHgBF/Uo4LnL8G7PczI7rpOoBK87CaBL073DVrrbIE4OONJvpq/PEzluKoRHbg==
 
-three-stdlib@^2.3.0:
+three-stdlib@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.3.1.tgz#201f4ff74a56e9ea45c77c111a615803edcb7f46"
   integrity sha512-dqBBHHzwS7A9CCY/ArYdk5lL5jiuX/1HQuYMM1OrxGENuYyLsv4TPElQfXjp70Mxw3x67KatqPngHw11hKnfFQ==
