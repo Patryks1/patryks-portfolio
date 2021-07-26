@@ -13,8 +13,14 @@ const MyExperience = (): JSX.Element => {
           position="left"
           jobTitle="Software developer"
           job="Freelancer"
-          content="Lorem"
-          tags={['C/C++', 'Trello', 'Linux', 'XML', 'WinForms', 'Driver']}
+          contentPoints={[
+            'Windows drivers',
+            'Windows applications',
+            'Content management systems',
+            'REST Apis',
+            'PHP dashboard development'
+          ]}
+          techTools={['C/C++', 'Trello', 'Linux', 'XML', 'WinForms', 'Driver']}
         />
         <Experience
           startDate="2018"
@@ -22,8 +28,16 @@ const MyExperience = (): JSX.Element => {
           position="right"
           job="Aviva"
           jobTitle="Full stack software developer"
-          content="Lorem"
-          tags={[
+          contentPoints={[
+            'Lead Developer on a new project made from the ground up.',
+            'Full stack developer',
+            'Assisting and supporting colleagues/apprentices.',
+            'Agile principals',
+            'Code Reviews',
+            'Sprint planning',
+            'Three amigos'
+          ]}
+          techTools={[
             'ASP.NET/C#',
             'TS / JS',
             'React',

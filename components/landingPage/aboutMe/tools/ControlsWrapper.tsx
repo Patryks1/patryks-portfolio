@@ -1,5 +1,4 @@
 import { OrbitControls } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
 import React, { useRef } from 'react';
 import { Vector3 } from 'three';
 
@@ -11,8 +10,6 @@ interface ControlsWrapperProps {
 
 const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
   const { targetPosition, hasTarget, setHasTarget } = props;
-
-  const { camera, scene } = useThree();
 
   const controlsRef = useRef();
 
@@ -32,10 +29,8 @@ const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
     if (camera.position === targetPosition) {
       setHasTarget(false);
     }
-  };*/
-
-  const resetCameraPosition = (): void => {
-    if (!hasTarget) return;
+  };
+  if (!hasTarget) return;
 
     targetPosition.set(0, 0, 0);
 
@@ -44,18 +39,9 @@ const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
     camera.position.z = 40;
     camera.lookAt(scene.position);
     setHasTarget(false);
-  };
+  */
 
-  return (
-    <OrbitControls
-      enablePan={false}
-      maxDistance={70}
-      minDistance={30}
-      ref={controlsRef}
-      onWheel={() => resetCameraPosition()}
-      onPointerDown={() => resetCameraPosition()}
-    />
-  );
+  return <OrbitControls enablePan={false} ref={controlsRef} enableZoom={false} />;
 };
 
 export default ControlsWrapper;

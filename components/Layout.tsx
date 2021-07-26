@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import React from 'react';
-import { CopyRight } from './Shared';
+import React, { useEffect, useState } from 'react';
+import { CopyRight, Navigation, PageLoader } from './Shared';
 
 interface IProps {
   children: React.ReactNode;
@@ -8,6 +8,11 @@ interface IProps {
 
 const Layout = (props: IProps): JSX.Element => {
   const { children } = props;
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 1500);
+  }, []);
 
   return (
     <React.Fragment>
@@ -37,12 +42,12 @@ const Layout = (props: IProps): JSX.Element => {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"
         />
       </Head>
-      <main className="bg-primary antialiased overflow-hidden">
-        {children}
-        <footer>
-          <CopyRight />
-        </footer>
-      </main>
+      {!isLoading && <Navigation />}
+      {children}
+      <footer>
+        <CopyRight />
+      </footer>
+      <PageLoader isShowing={isLoading} />
     </React.Fragment>
   );
 };

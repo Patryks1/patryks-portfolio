@@ -36,6 +36,7 @@ const FadeInSection = (props: IFadeInSectionProps): JSX.Element => {
     };
   }, []);
 
+  // TODO: refactor this to use @tailwindui/react transition
   return (
     <section
       ref={domRef}
