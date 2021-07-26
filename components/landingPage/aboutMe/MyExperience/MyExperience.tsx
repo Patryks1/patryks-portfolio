@@ -4,7 +4,7 @@ import Experience from './Experience';
 
 const MyExperience = (): JSX.Element => {
   return (
-    <FadeInSection className="flex flex-col" direction="left">
+    <FadeInSection className="flex flex-col px-8" direction="left">
       <h1 className="px-20 text-primary font-bold mb-2 flex justify-end text-xl">Experience</h1>
       <div className="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
         <Experience
