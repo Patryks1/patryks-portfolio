@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
 import { IProjectInformation } from '../../../interfaces/landingPage.interfaces';
 import Image from 'next/image';
@@ -11,6 +11,7 @@ interface IProjectCardProps {
 
 const ProjectCard = (props: IProjectCardProps): JSX.Element => {
   const { project, grid } = props;
+
   const [isShowingDetail, setIsShowingDetail] = useState<boolean>(false);
 
   const renderProjectDetail = (): JSX.Element => (
@@ -28,25 +29,156 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
   };
 
   return (
-    <div className="w-full">
-      <button type="button" onClick={() => onProjectCardClicked()} className="relative w-full">
-        <Image
-          src={project.image}
-          alt="project_pic"
-          layout="responsive"
-          height={65}
-          width={100}
-          className="object-fill w-full h-full"
-        />
-        {!isShowingDetail && (
-          <h1 className="absolute top-0 w-full h-full flex justify-center items-center">
-            <span className="w-full py-1 bg-primary">{project.title}</span>
-          </h1>
-        )}
-        {isShowingDetail && renderProjectDetail()}
-      </button>
+    <div className="overflow-hidden relative w-full h-48">
+      <div className="project_card__right">Right → Left</div>
+      <div className="project_card__left">Left → Right</div>
+      <div className="project_card__top">Top → Bottom</div>
+      <div className="project_card__bottom">Bottom → Top</div>
+      <div
+        className="project_card__center bg-no-repeat bg-center bg-cover"
+        style={{ backgroundImage: `url(${project.image})` }}>
+        <h1 className="absolute bottom-0 flex justify-center w-full bg-primary">{project.title}</h1>
+      </div>
     </div>
   );
 };
+
+/*
+
+
+
+enum DirectionType {
+  left,
+  right,
+  top,
+  bottom
+}
+
+const ProjectCard = (props: IProjectCardProps): JSX.Element => {
+  const { project, grid, size } = props;
+
+  const [isShowingDetail, setIsShowingDetail] = useState<boolean>(false);
+  const overlayRef = useRef<HTMLDivElement>();
+  const boxRef = useRef<HTMLDivElement>();
+
+  const renderProjectDetail = (): JSX.Element => (
+    <div className="absolute top-0 left-0">
+      <h1>{project.description}</h1>
+    </div>
+  );
+
+  const onProjectCardClicked = (): void => {
+    setIsShowingDetail(!isShowingDetail);
+
+    setTimeout(() => {
+      grid?.updateLayout();
+    }, 100);
+  };
+
+  const getOffset = (el) => {
+    let _x = 0;
+    let _y = 0;
+
+    while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+      _x += el.offsetLeft - el.scrollLeft;
+      _y += el.offsetTop - el.scrollTop;
+      el = el.offsetParent;
+    }
+
+    return { top: _y, left: _x };
+  };
+
+  const getDirection = (event: React.MouseEvent<HTMLDivElement>): DirectionType => {
+    const boundingBox = boxRef.current.getBoundingClientRect();
+    console.log(boundingBox);
+    const x: number = event.pageX - boxRef.current.offsetLeft;
+    const y: number = window.screenTop + boundingBox.top;
+
+    const w: number = boxRef.current.clientWidth;
+    const h: number = boxRef.current.clientHeight;
+    console.log(y, boundingBox.top, window.screenTop, h);
+
+    const topDirection: number = distMetric(x, y, w / 2, 0);
+    const bottomDirection: number = distMetric(x, y, w / 2, h);
+    const leftDirection: number = distMetric(x, y, 0, h / 2);
+    const rightDirection: number = distMetric(x, y, w, h / 2);
+    const min = Math.min(topDirection, bottomDirection, leftDirection, rightDirection);
+
+    switch (min) {
+      case leftDirection:
+        return DirectionType.left;
+      case rightDirection:
+        return DirectionType.right;
+      case topDirection:
+        return DirectionType.top;
+      case bottomDirection:
+        return DirectionType.bottom;
+    }
+  };
+
+  const distMetric = (x: number, y: number, x2: number, y2: number): number => {
+    const xDiff: number = x - x2;
+    const yDiff: number = y - y2;
+    return xDiff * xDiff + yDiff * yDiff;
+  };
+
+  const onMouseEnter = (event: React.MouseEvent<HTMLDivElement>): void => {
+    const direction = getDirection(event);
+
+    switch (direction) {
+      case DirectionType.left:
+        overlayRef.current.style.top = '0%';
+        overlayRef.current.style.left = '-100%';
+        gsap.to(overlayRef.current, { duration: 0.5, left: '0%' });
+        break;
+      case DirectionType.right:
+        overlayRef.current.style.top = '0%';
+        overlayRef.current.style.left = '100%';
+        gsap.to(overlayRef.current, { duration: 0.5, left: '0%' });
+        break;
+      case DirectionType.top:
+        overlayRef.current.style.top = '-100%';
+        overlayRef.current.style.left = '0%';
+        gsap.to(overlayRef.current, { duration: 0.5, top: '0%' });
+        break;
+      case DirectionType.bottom:
+        overlayRef.current.style.top = '100%';
+        overlayRef.current.style.left = '0%';
+        gsap.to(overlayRef.current, { duration: 0.5, top: '0%' });
+        break;
+    }
+  };
+
+  const onMouseLeave = (event: React.MouseEvent<HTMLDivElement>): void => {
+    const direction = getDirection(event);
+
+    switch (direction) {
+      case DirectionType.left:
+        gsap.to(overlayRef.current, { duration: 0.5, left: '-100%' });
+        break;
+      case DirectionType.right:
+        gsap.to(overlayRef.current, { duration: 0.5, left: '100%' });
+        break;
+      case DirectionType.top:
+        gsap.to(overlayRef.current, { duration: 0.5, top: '-100%' });
+        break;
+      case DirectionType.bottom:
+        gsap.to(overlayRef.current, { duration: 0.5, top: '100%' });
+        break;
+    }
+  };
+
+  return (
+    <div
+      className="boxes w-64 h-32"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      ref={boxRef}>
+      <Image src={project.image} alt="project_pic" layout="fill" className="object-fill" />
+      <div className="overlay" ref={overlayRef}></div>
+    </div>
+  );
+};
+*/
 
 export default ProjectCard;

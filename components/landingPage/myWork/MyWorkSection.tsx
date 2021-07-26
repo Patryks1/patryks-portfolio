@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FadeInSection, SectionTitle } from '../../Shared';
-import StackGrid, { transitions } from 'react-stack-grid';
+import StackGrid, { Grid, transitions } from 'react-stack-grid';
 import { withSize } from 'react-sizeme';
 import { FilterType, IProjectInformation } from '../../../interfaces/landingPage.interfaces';
 import ProjectCard from './ProjectCard';
@@ -50,7 +50,7 @@ const projects: IProjectInformation[] = [
 const MyWorkSection = ({ size }): JSX.Element => {
   const { width } = size;
   const [filter, setFilter] = useState<FilterType>(FilterType.All);
-  const [grid, setGrid] = useState<any>();
+  const [grid, setGrid] = useState<Grid>();
   const { scaleDown } = transitions;
 
   const resolveColumnWidth = (): string => {
