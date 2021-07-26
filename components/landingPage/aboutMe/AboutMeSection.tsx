@@ -16,7 +16,7 @@ const AboutMeSection = (): JSX.Element => {
         <SectionTitle title="About Me" />
       </FadeInSection>
       <div className="flex flex-col text-center w-full">
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <FadeInSection className="flex flex-col space-y-4 p-20 md:p-10" direction="right">
             <img
               src="./images/profile_pic.jpg"
@@ -83,7 +83,7 @@ const AboutMeSection = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full mt-20 space-y-20">
           <ToolsScene />
           <MyExperience />
         </div>
