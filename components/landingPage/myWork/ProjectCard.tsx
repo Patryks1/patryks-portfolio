@@ -1,52 +1,38 @@
-import React, { useRef } from 'react';
-import { useState } from 'react';
+import React from 'react';
+import { Grid } from 'react-stack-grid';
 import { IProjectInformation } from '../../../interfaces/landingPage.interfaces';
-import Image from 'next/image';
 
 interface IProjectCardProps {
   project: IProjectInformation;
   key: string;
-  grid: any;
+  grid: Grid;
 }
 
 const ProjectCard = (props: IProjectCardProps): JSX.Element => {
-  const { project, grid } = props;
+  const { project } = props;
 
-  const [isShowingDetail, setIsShowingDetail] = useState<boolean>(false);
-
-  const renderProjectDetail = (): JSX.Element => (
-    <div className="absolute top-0 left-0">
-      <h1>{project.description}</h1>
+  const renderProjectDetail = (side: string): JSX.Element => (
+    <div className={`project_card__${side}`}>
+      <div className="absolute top-0 left-0 w-full h-full bg-gray-700 flex flex-col p-2 justify-between">
+        <h1>{project.description}</h1>
+        <button className="justify-end p-2 bg-secondary-500 rounded-lg">View more</button>
+      </div>
     </div>
   );
 
-  const onProjectCardClicked = (): void => {
-    setIsShowingDetail(!isShowingDetail);
-
-    setTimeout(() => {
-      grid?.updateLayout();
-    }, 100);
-  };
-
   return (
-    <div className="overflow-hidden relative w-full h-48">
-      <div className="project_card__right">Right → Left</div>
-      <div className="project_card__left">Left → Right</div>
-      <div className="project_card__top">Top → Bottom</div>
-      <div className="project_card__bottom">Bottom → Top</div>
-      <div
-        className="project_card__center bg-no-repeat bg-center bg-cover"
-        style={{ backgroundImage: `url(${project.image})` }}>
-        <h1 className="absolute bottom-0 flex justify-center w-full bg-primary">{project.title}</h1>
-      </div>
+    <div
+      className="overflow-hidden relative w-full h-40"
+      style={{ backgroundImage: `url(${project.image})`, objectFit: 'contain' }}>
+      {renderProjectDetail('right')}
+      {renderProjectDetail('left')}
+      {renderProjectDetail('top')}
+      {renderProjectDetail('bottom')}
     </div>
   );
 };
 
 /*
-
-
-
 enum DirectionType {
   left,
   right,

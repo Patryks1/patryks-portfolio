@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 
-const ScrollToTop = () => {
+const ScrollToTop = (): JSX.Element => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const ScrollToTop = () => {
     };
   });
 
-  const toggleVisible = () => {
+  const toggleVisible = (): void => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
       setVisible(true);
