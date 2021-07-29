@@ -31,12 +31,13 @@ const handler = async (
         ? `${sanitizedFirstName} ${sanitizedLastName}`
         : sanitizedEmail;
 
-      // TODO: send an email to my self
+      const message = `FROM: ${sanitizedEmail}\n${sanitizedMessage}`;
+
       const mailOptions = {
         from: sanitizedEmail,
         to: process.env.GMAIL_EMAIL,
         subject: `Portfolio contact from ${contactFrom}`,
-        text: sanitizedMessage
+        text: message
       };
 
       const mailResponse = await transporter.sendMail(mailOptions);

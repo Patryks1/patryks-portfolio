@@ -10,7 +10,7 @@ import { ScrollToTop } from '../components/Shared';
 
 const Home: NextPage = (): JSX.Element => {
   return (
-    <main className="text-white flex flex-col space-y-20 overflow-hidden0">
+    <main className="text-white flex flex-col space-y-20 overflow-hidden">
       <LandingSection />
       <AboutMeSection />
       <MyWorkSection />

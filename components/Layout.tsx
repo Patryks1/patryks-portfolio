@@ -42,12 +42,14 @@ const Layout = (props: IProps): JSX.Element => {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"
         />
       </Head>
-      {!isLoading && <Navigation />}
-      {children}
-      <footer>
-        <CopyRight />
-      </footer>
-      <PageLoader isShowing={isLoading} />
+      <div className="overflow-x-hidden">
+        {!isLoading && <Navigation />}
+        {children}
+        <footer>
+          <CopyRight />
+        </footer>
+        <PageLoader isShowing={isLoading} />
+      </div>
     </React.Fragment>
   );
 };

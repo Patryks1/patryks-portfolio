@@ -36,7 +36,9 @@ const AboutMeSection = (): JSX.Element => {
               </p>
             </FadeInSection>
             <div className="flex flex-col">
-              <h1 className="px-20 text-primary font-bold mb-2 flex justify-end text-xl">Skills</h1>
+              <h1 className="px-20 text-primary font-bold mb-2 flex text-xl justify-center md:justify-end">
+                Skills
+              </h1>
               <SkillGrid className="px-20">
                 <SkillTab
                   skillName="C# / ASP.NET"

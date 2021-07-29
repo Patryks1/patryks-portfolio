@@ -12,7 +12,9 @@ const ToolsScene = (): JSX.Element => {
 
   return (
     <FadeInSection className="flex flex-col" direction="left">
-      <h1 className="px-20 text-primary font-bold mb-2 flex text-xl">Tools</h1>
+      <h1 className="px-20 text-primary font-bold mb-2 flex text-xl justify-center md:justify-start">
+        Tools
+      </h1>
       <div style={{ width: '100%', height: 600 }}>
         <Canvas camera={{ position: [0, 0, 50] }}>
           <ControlsWrapper
