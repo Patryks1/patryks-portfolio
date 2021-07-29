@@ -1,17 +1,22 @@
 import mongoose, { Document, Model } from 'mongoose';
 
 export interface IBlogDocument extends Document {
-  key: string;
-  created: Date;
+  headline: string;
+  tags: string[];
+  content: string; // Contains HTML
+  updateAt: Date;
+  createdAt: Date;
 }
 
 const blog = new mongoose.Schema({
-  key: {
-    type: String
-  },
+  headline: String,
   content: String,
   tags: [{ type: String }],
-  created: {
+  updateAt: {
+    type: Date,
+    default: Date.now
+  },
+  createdAt: {
     type: Date,
     default: Date.now
   }
