@@ -1,3 +1,6 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import React from 'react';
 import { Grid } from 'react-stack-grid';
 import { IProjectInformation } from '../../../interfaces/landingPage.interfaces';
@@ -15,7 +18,22 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
     <div className={`project_card__${side}`}>
       <div className="absolute top-0 left-0 w-full h-full bg-gray-700 flex flex-col p-2 justify-between">
         <h1>{project.description}</h1>
-        <button className="justify-end p-2 bg-secondary-500 rounded-lg">View more</button>
+        <div className={`flex ${project.blog ? 'justify-between' : 'justify-center'} `}>
+          {project.blog && (
+            <Link href={`/blog/${project.blog}`}>
+              <h1 className="p-2 bg-secondary-500 rounded-md cursor-pointer hover:opacity-90">
+                View more
+              </h1>
+            </Link>
+          )}
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="w-8 h-8 mt-1 cursor-pointer hover:opacity-90">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+        </div>
       </div>
     </div>
   );

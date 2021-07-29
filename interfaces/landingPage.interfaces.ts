@@ -5,6 +5,7 @@ export interface IProjectInformation {
   tags: FilterType[];
   image?: string;
   github?: string;
+  blog?: string;
 }
 
 export enum FilterType {

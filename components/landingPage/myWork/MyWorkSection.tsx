@@ -11,7 +11,8 @@ const projects: IProjectInformation[] = [
     image: '/images/projects/screenshotTool.png',
     description: 'Part of my ongoing dev tool box, A light weight screenshot tool made in C# / JS',
     github: 'https://github.com/Patryks1/ScreenshotTool',
-    tags: [FilterType.Backend, FilterType.Frontend]
+    tags: [FilterType.Backend, FilterType.Frontend],
+    blog: 'test'
   },
   {
     title: 'Next JS / Tailwindcss template',
