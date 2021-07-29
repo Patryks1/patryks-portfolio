@@ -6,8 +6,6 @@ import { Text } from '@react-three/drei';
 interface TextWrapperProps {
   text: string;
   position?: Vector3 | [number, number, number];
-  targetPosition?: Vector3;
-  setHasTarget?: (value: boolean) => void;
 }
 
 interface TextMesh extends Mesh {
@@ -15,7 +13,7 @@ interface TextMesh extends Mesh {
 }
 
 const TextWrapper = (props: TextWrapperProps): JSX.Element => {
-  const { text, position, targetPosition, setHasTarget } = props;
+  const { text, position } = props;
 
   const { camera } = useThree();
   const textRef = useRef<TextMesh>();
@@ -30,14 +28,6 @@ const TextWrapper = (props: TextWrapperProps): JSX.Element => {
       position={position}
       scale={19}
       ref={textRef}
-      onClick={() => {
-        targetPosition.set(
-          textRef.current.position.x - 10,
-          textRef.current.position.y - 10,
-          textRef.current.position.z - 10
-        );
-        setHasTarget(true);
-      }}
       onPointerEnter={() => (textRef.current.color = 'hotpink')}
       onPointerLeave={() => (textRef.current.color = 'white')}>
       {text}

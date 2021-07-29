@@ -3,15 +3,7 @@ import { useMemo, useRef } from 'react';
 import { Mesh, Vector3 } from 'three';
 import TextWrapper from './TextWrapper';
 
-interface ToolsGroupProps {
-  hasTarget: boolean;
-  setHasTarget: (value: boolean) => void;
-  targetPosition: Vector3;
-}
-
-const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
-  const { setHasTarget, targetPosition } = props;
-
+const ToolsGroupEntity = (): JSX.Element => {
   const tools = [
     'Aws',
     'Azure',
@@ -89,13 +81,7 @@ const ToolsGroupEntity = (props: ToolsGroupProps): JSX.Element => {
       {
         // Text entities
         fibPoints.map((pos, index) => (
-          <TextWrapper
-            key={`k-${index}`}
-            text={tools[index]}
-            position={pos}
-            targetPosition={targetPosition}
-            setHasTarget={setHasTarget}
-          />
+          <TextWrapper key={`k-${index}`} text={tools[index]} position={pos} />
         ))
       }
     </group>
