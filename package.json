@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@marko/jest": "^3.2.3",
-    "@next/bundle-analyzer": "^10.2.3",
+    "@next/bundle-analyzer": "^11.0.1",
     "@react-three/fiber": "^7.0.6",
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.14.1",
