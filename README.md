@@ -4,6 +4,11 @@
 
 My portfolio website built with react and next.js
 
+TODO:
+- UT's 
+- Fix orbit controls not being unloaded once disabled. 
+- Make website look better. 
+
 # Features
 
 - **Next.js** - Minimal framework for server-rendered React applications.
