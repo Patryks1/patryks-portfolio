@@ -5,9 +5,7 @@ import dynamic from 'next/dynamic';
 import SkillTab from './SkillTab';
 import MyExperience from './MyExperience/MyExperience';
 
-const ToolsScene = dynamic(() => import('./tools/ToolsScene'), {
-  loading: () => <h1>Loading...</h1>
-});
+const ToolsScene = dynamic(() => import('./tools/ToolsScene'));
 
 const AboutMeSection = (): JSX.Element => {
   return (
@@ -29,7 +27,7 @@ const AboutMeSection = (): JSX.Element => {
           <div className="flex flex-col mt-10 lg:mt-0 space-y-10">
             <FadeInSection className="px-5 lg:px-32" direction="left">
               <p>
-                Hi I'm Patryk, an Energetic full-stack software engineer with over 3 years of
+                Hi I&apos;m Patryk, an Energetic full-stack software engineer with over 3 years of
                 commercial experience. But with over 5 years of coding experience. Passionately
                 driven individual with the ability to adapt to any situation with proven potential
                 to grow myself and others.
@@ -56,12 +54,12 @@ const AboutMeSection = (): JSX.Element => {
                 <SkillTab skillName="Redux" icon="devicon-redux-plain" years={3} delay={300} />
               </SkillGrid>
               <SkillGrid className="mt-4">
-                <SkillTab skillName="HTML / CSS" icon="devicon-html5-plain" years={2} delay={0} />
-                <SkillTab skillName="NextJs" icon="devicon-nextjs-plain" years={2} delay={100} />
+                <SkillTab skillName="HTML5 / CSS" icon="devicon-html5-plain" years={3} delay={0} />
+                <SkillTab skillName="Next.js" icon="devicon-nextjs-plain" years={2} delay={100} />
                 <SkillTab
                   skillName="Node / Express.js"
                   icon="devicon-nodejs-plain"
-                  years={3}
+                  years={2}
                   delay={200}
                 />
                 <SkillTab
@@ -80,7 +78,7 @@ const AboutMeSection = (): JSX.Element => {
                   delay={300}
                 />
                 <SkillTab skillName="MongoDB" icon="devicon-mongodb-plain" years={2} delay={300} />
-                <SkillTab skillName="MySql" icon="devicon-mysql-plain" years={4} delay={300} />
+                <SkillTab skillName="MySql" icon="devicon-mysql-plain" years={3} delay={300} />
               </SkillGrid>
             </div>
           </div>
