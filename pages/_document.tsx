@@ -11,7 +11,7 @@ import Document, {
 
 const title = 'Patryk Slowinski | Portfolio';
 const description = 'Patryk Slowinski personal portfolio';
-const image = `${process.env.SITE_URL}/images/snapshot/homepage-snapshot.jpg`;
+const image = `${process.env.SITE_URL}/images/snapshots/homepage-snapshot.png`;
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
@@ -22,7 +22,7 @@ class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html>
-        <Head>
+        <Head lang="en">
           <base href="" />
           <meta name="robots" content="index, follow" />
           <link rel="canonical" href={process.env.SITE_URL} />

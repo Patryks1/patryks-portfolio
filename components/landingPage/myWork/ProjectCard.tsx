@@ -30,6 +30,7 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
             href={project.github}
             target="_blank"
             rel="noreferrer"
+            aria-label="github"
             className="w-8 h-8 mt-1 cursor-pointer hover:opacity-90">
             <FontAwesomeIcon icon={faGithub} />
           </a>

@@ -19,6 +19,7 @@ const LandingSection = (): JSX.Element => {
 
       <div className="flex justify-center">
         <button
+          aria-label="scroll-down"
           className="absolute bottom-8 w-20 h-20 p-6 hover:text-primary duration-500 ease-in-out focus:outline-none"
           onClick={() => {
             scroller.scrollTo('aboutMe', {

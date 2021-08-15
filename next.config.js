@@ -34,6 +34,7 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com;
   child-src *.google.com *.github.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com *.jsdelivr.net;
+  worker-src 'self' blob:;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
