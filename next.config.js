@@ -30,11 +30,11 @@ module.exports = withBundleAnalyzer({
 
 // https://securityheaders.com
 const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com vitals.vercel-insights.com;
-  child-src *.google.com *.github.com;
+  default-src * 'self' 'unsafe-inline' 'unsafe-eval';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com vitals.vercel-insights.com blob:;
+  worker-src blob:; 
+  child-src *.google.com *.github.com blob:;
   style-src 'self' 'unsafe-inline' *.googleapis.com *.jsdelivr.net;
-  worker-src 'self' blob:;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
