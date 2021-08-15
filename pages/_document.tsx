@@ -21,8 +21,8 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html>
-        <Head lang="en">
+      <Html lang="en">
+        <Head>
           <base href="" />
           <meta name="robots" content="index, follow" />
           <link rel="canonical" href={process.env.SITE_URL} />
