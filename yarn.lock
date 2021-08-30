@@ -759,10 +759,10 @@
     jest-config "^24.8.0"
     tslib "^1.10.0"
 
-"@next/bundle-analyzer@^10.2.3":
-  version "10.2.3"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-10.2.3.tgz#6526e31f46cd48145986dc3bf911ff693e2acdf7"
-  integrity sha512-vEfQhGWgJugZOlSUlj3DZWs/KsK0SO2SPKoHSZ7KkzpruKzc/e45G0oUh0rffzdhasMQZM1TuSBkxO+1UcnDNw==
+"@next/bundle-analyzer@^11.1.1":
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-11.1.1.tgz#fe3587a95ebe28e251c88916e1a81c65c2693bc7"
+  integrity sha512-EdjFY11oFpDKwOFCOKtJqBT7DQTJ4wa4opvhuysf9EZ8AurlcWShTAfnG/k+z9tDJ0SHujanjd5livoTIIPqgA==
   dependencies:
     webpack-bundle-analyzer "4.3.0"
 
