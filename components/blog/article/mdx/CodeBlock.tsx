@@ -8,15 +8,17 @@ type Props = {
 
 const CodeBlock = (props: Props): JSX.Element => {
   const { children, className } = props;
-  const language = className.replace(/language-/, '');
+  const language = className?.replace(/language-/, '');
 
   return (
     <Highlight {...defaultProps} code={children as string} language={language as Language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <>
-          <h1 className="w-2/12 sm:w-1/12 text-center text-white bg-gray-700 rounded-lg py-1 m-1 hover:opacity-80 cursor-pointer float-right">
-            {language}
-          </h1>
+          {language && (
+            <h1 className="w-2/12 sm:w-1/12 text-center text-white bg-gray-700 rounded-lg py-1 m-1 hover:opacity-80 cursor-pointer float-right">
+              {language}
+            </h1>
+          )}
           <pre className={`p-5 rounded-lg my-5 ${className}`} style={{ ...style }}>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
