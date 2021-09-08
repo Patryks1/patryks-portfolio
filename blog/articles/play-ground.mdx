@@ -1,13 +1,13 @@
 ---
-title: 'Hello World'
+title: 'Play ground'
 date: '2020-03-16T05:35:07.322Z'
 isPublished: true
 ---
 
-import Container from './Container';
+import { Container } from './';
 
 <Container className="text-white">
-# Title, tialic
+### Title, tialic
 
 Hello World! Test
 
@@ -19,7 +19,7 @@ Below is an example of JSX embedded in Markdown. <br /> **BOLD!**
 
 </Container>
 
-```js
+```js {1,2,4-5}
 import React from 'react';
 import Example from './place';
 
@@ -40,8 +40,8 @@ Here's an unordered list:
 - Banana
 - Carrot
 
-Ordred list:
 
+Ordered list:
 1. Test
 2. Second thing
 3. Stuff

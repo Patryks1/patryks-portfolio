@@ -3,8 +3,7 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { getSingleArticle, getAllArticles } from '../../../blog/blogHelper';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { CodeBlock, Link, Header } from '../../../components/blog/article/mdx';
-import { HeaderType } from '../../../components/blog/article/mdx/Header';
+import { CodeBlock, Link, Header, List } from '../../../components/blog/article/mdx';
 
 interface IArticleMetaData {
   title: string;
@@ -24,46 +23,61 @@ type ArticleProps = {
 const components = {
   h1: (props) => {
     const extendedProps = {
-      type: HeaderType.h1,
+      type: 'h1',
       ...props
     };
     return Header(extendedProps);
   },
   h2: (props) => {
     const extendedProps = {
-      type: HeaderType.h2,
+      type: 'h2',
       ...props
     };
     return Header(extendedProps);
   },
   h3: (props) => {
     const extendedProps = {
-      type: HeaderType.h3,
+      type: 'h3',
       ...props
     };
     return Header(extendedProps);
   },
   h4: (props) => {
     const extendedProps = {
-      type: HeaderType.h4,
+      type: 'h4',
       ...props
     };
     return Header(extendedProps);
   },
   h5: (props) => {
     const extendedProps = {
-      type: HeaderType.h5,
+      type: 'h5',
       ...props
     };
     return Header(extendedProps);
   },
   h6: (props) => {
     const extendedProps = {
-      type: HeaderType.h6,
+      type: 'h6',
       ...props
     };
     return Header(extendedProps);
   },
+  ol: (props) => {
+    const extendedProps = {
+      type: 'ol',
+      ...props
+    };
+    return List(extendedProps);
+  },
+  ul: (props) => {
+    const extendedProps = {
+      type: 'ul',
+      ...props
+    };
+    return List(extendedProps);
+  },
+  li: List.ListItem,
   a: Link,
   code: CodeBlock
 };

@@ -1,13 +1,6 @@
 import React from 'react';
 
-export enum HeaderType {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6
-}
+export type HeaderType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type Props = {
   children: string;
@@ -19,22 +12,22 @@ const Header = (props: Props): JSX.Element => {
 
   const getSize = (): string => {
     switch (type) {
-      case HeaderType.h1: {
+      case 'h1': {
         return 'text-2xl';
       }
-      case HeaderType.h2: {
+      case 'h2': {
         return 'text-3xl';
       }
-      case HeaderType.h3: {
+      case 'h3': {
         return 'text-4xl';
       }
-      case HeaderType.h4: {
+      case 'h4': {
         return 'text-5xl';
       }
-      case HeaderType.h5: {
+      case 'h5': {
         return 'text-6xl';
       }
-      case HeaderType.h6: {
+      case 'h6': {
         return 'text-8xl';
       }
       default: {

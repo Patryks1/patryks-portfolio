@@ -22,6 +22,12 @@ module.exports = {
         white: '#DDDDDD',
         black: '#222831'
       }
+    },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      circle: 'circle'
     }
   },
   variants: {
