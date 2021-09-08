@@ -13,22 +13,22 @@ const Header = (props: Props): JSX.Element => {
   const getSize = (): string => {
     switch (type) {
       case 'h1': {
-        return 'text-2xl';
+        return 'text-8xl';
       }
       case 'h2': {
-        return 'text-3xl';
+        return 'text-5xl';
       }
       case 'h3': {
         return 'text-4xl';
       }
       case 'h4': {
-        return 'text-5xl';
+        return 'text-3xl';
       }
       case 'h5': {
-        return 'text-6xl';
+        return 'text-2xl';
       }
       case 'h6': {
-        return 'text-8xl';
+        return 'text-xl';
       }
       default: {
         return 'text-md';
