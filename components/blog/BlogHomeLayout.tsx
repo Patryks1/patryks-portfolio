@@ -2,25 +2,17 @@ import Head from 'next/head';
 import React from 'react';
 import { CopyRight } from '../Shared';
 
-interface IBlogMetaData {
-  title: string;
-  seoTitle: string;
-  abstract: string;
-  isPublished: boolean;
-  publishedOn: Date;
-}
-
 interface IProps {
   children: React.ReactNode;
 }
 
-const BlogLayout = (props: IProps): JSX.Element => {
+const BlogHomeLayout = (props: IProps): JSX.Element => {
   const { children } = props;
 
   return (
     <React.Fragment>
       <Head>
-        <title>TITLE OF BLOG</title>
+        <title>Patryk Slowinski | Blog</title>
       </Head>
       <div className="overflow-x-hidden">
         {children}
@@ -32,4 +24,4 @@ const BlogLayout = (props: IProps): JSX.Element => {
   );
 };
 
-export default BlogLayout;
+export default BlogHomeLayout;

@@ -2,6 +2,8 @@ import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/dist/client/router';
 import React, { useEffect } from 'react';
+import BlogArticleLayout from '../components/blog/BlogArticleLayout';
+import BlogHomeLayout from '../components/blog/BlogHomeLayout';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
 import * as gtag from '../util/gtag';
@@ -21,10 +23,22 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
     };
   }, [router.events]);
 
+  const AppLayout = ({ children }): JSX.Element => {
+    if (router.pathname.includes('blog/article')) {
+      return <BlogArticleLayout>{children}</BlogArticleLayout>;
+    }
+
+    if (router.pathname.includes('blog')) {
+      return <BlogHomeLayout>{children}</BlogHomeLayout>;
+    }
+
+    return <Layout>{children}</Layout>;
+  };
+
   return (
-    <Layout>
+    <AppLayout>
       <Component {...pageProps} />
-    </Layout>
+    </AppLayout>
   );
 };
 
