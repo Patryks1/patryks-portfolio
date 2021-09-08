@@ -7,31 +7,33 @@ type Props = {
   metastring: string;
 };
 
-const RE = /{([\d,-]+)}/;
+const RE = /{([\d,_]+)}/;
 
-const calculateLinesToHighlight = (meta) => {
+const calculateLinesToHighlight = (meta: string): ((index: number) => boolean) => {
   if (!RE.test(meta)) {
     return () => false;
   }
 
   const lineNumbers = RE.exec(meta)[1]
     .split(`,`)
-    .map((v) => v.split(`-`).map((x) => parseInt(x, 10)));
+    .map((v) => v.split(`_`).map((x) => parseInt(x, 10)));
 
   return (index) => {
     const lineNumber = index + 1;
     const inRange = lineNumbers.some(([start, end]) =>
       end ? lineNumber >= start && lineNumber <= end : lineNumber === start
     );
+
     return inRange;
   };
 };
 
 const CodeBlock = (props: Props): JSX.Element => {
-  const { children, className, metastring } = props;
-  console.log(props);
-  const language = className?.replace(/language-/, '');
-  const shouldHighlightLine = calculateLinesToHighlight(metastring);
+  const { children, className } = props;
+  const codeProps = className?.split('-');
+  const language = codeProps && codeProps[1];
+  const displayLineNumbers = codeProps && codeProps[2] === 'true';
+  const shouldHighlightLine = calculateLinesToHighlight(codeProps && codeProps[3]);
 
   return (
     <Highlight {...defaultProps} code={children as string} language={language as Language}>
@@ -46,13 +48,31 @@ const CodeBlock = (props: Props): JSX.Element => {
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
 
+              // TODO: Work out if the index is in the middle
               if (shouldHighlightLine(i)) {
-                lineProps.className = `${lineProps.className} bg-blue-500`;
+                const isTop = !shouldHighlightLine(i - 1);
+                const isBottom = !shouldHighlightLine(i + 1);
+
+                let roundness;
+
+                if (isTop) {
+                  roundness = 'rounded-t-md';
+                }
+
+                if (isBottom) {
+                  roundness = 'rounded-b-md';
+                }
+
+                if (isTop && isBottom) {
+                  roundness = 'rounded-md';
+                }
+
+                lineProps.className = `${lineProps.className} bg-gray-700 px-2 ${roundness}`;
               }
 
               return (
                 <div key={i} {...lineProps}>
-                  <span className="line-number-style">{i + 1} | </span>
+                  {displayLineNumbers && <span>{i + 1} | </span>}
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}

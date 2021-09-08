@@ -19,14 +19,18 @@ Below is an example of JSX embedded in Markdown. <br /> **BOLD!**
 
 </Container>
 
-```js {1,2,4-5}
+```js-false-{1,4_6,8}
 import React from 'react';
 import Example from './place';
+
+const someFunction = () => {
+  return "nothing"
+}
 
 export default () => <Example />;
 ```
 
-```md
+```md-true
 Here's an unordered list:
 
 - Apple
