@@ -2,9 +2,8 @@ import React from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 
 type Props = {
-  children: JSX.Element | JSX.Element[] | string;
+  children: string;
   className: string;
-  metastring: string;
 };
 
 const RE = /{([\d,_]+)}/;
@@ -36,7 +35,7 @@ const CodeBlock = (props: Props): JSX.Element => {
   const shouldHighlightLine = calculateLinesToHighlight(codeProps && codeProps[3]);
 
   return (
-    <Highlight {...defaultProps} code={children as string} language={language as Language}>
+    <Highlight {...defaultProps} code={children} language={language as Language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <>
           {language && (
@@ -48,12 +47,11 @@ const CodeBlock = (props: Props): JSX.Element => {
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
 
-              // TODO: Work out if the index is in the middle
               if (shouldHighlightLine(i)) {
                 const isTop = !shouldHighlightLine(i - 1);
                 const isBottom = !shouldHighlightLine(i + 1);
 
-                let roundness;
+                let roundness: string;
 
                 if (isTop) {
                   roundness = 'rounded-t-md';

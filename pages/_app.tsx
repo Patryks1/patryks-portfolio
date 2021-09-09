@@ -23,22 +23,20 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
     };
   }, [router.events]);
 
-  const AppLayout = ({ children }): JSX.Element => {
-    if (router.pathname.includes('blog/article')) {
-      return <BlogArticleLayout>{children}</BlogArticleLayout>;
+  const isBlogPage = (): boolean => {
+    if (router.pathname.includes('blog/article') || router.pathname.includes('blog')) {
+      return true;
     }
 
-    if (router.pathname.includes('blog')) {
-      return <BlogHomeLayout>{children}</BlogHomeLayout>;
-    }
-
-    return <Layout>{children}</Layout>;
+    return false;
   };
 
-  return (
-    <AppLayout>
+  return isBlogPage() ? (
+    <Component {...pageProps} />
+  ) : (
+    <Layout>
       <Component {...pageProps} />
-    </AppLayout>
+    </Layout>
   );
 };
 

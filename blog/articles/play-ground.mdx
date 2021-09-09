@@ -4,7 +4,7 @@ date: '2020-03-16T05:35:07.322Z'
 isPublished: true
 ---
 
-import { Container } from './';
+import { Container, Picture } from './';
 
 <Container className="text-white">
 ### Title, tialic
@@ -17,6 +17,11 @@ Hello World! Test
 
 Below is an example of JSX embedded in Markdown. <br /> **BOLD!**
 
+![alt](https://mdx-logo.now.sh)
+
+    <Picture src="https://mdx-logo.now.sh" alt="article_header" position="middle" />
+    <Picture src="https://mdx-logo.now.sh" alt="article_header" position="left" />
+    <Picture src="https://mdx-logo.now.sh" alt="article_header" position="right" />
 </Container>
 
 ```js-false-{1,4_6,8}
@@ -82,6 +87,8 @@ _emphasis_
 - bar
 
 ~~strikethrough~~
+
+~~alpha~~
 
 Tab
   Tab

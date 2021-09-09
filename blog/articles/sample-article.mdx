@@ -1,0 +1,27 @@
+---
+title: 'Sample Article'
+date: '2020-03-16T05:35:07.322Z'
+isPublished: true
+---
+
+import { Container, Picture } from './';
+
+{/* Article simple header */}
+<Container className="text-white">
+  <div className="text-center space-y-10">
+    ## {frontmatter.title}
+
+    Published on {new Date(frontmatter.date).toLocaleDateString("en-UK")} <br/> By Patryk Slowinski
+  </div>
+</Container>
+
+{/* Article header with image */}
+<Container className="text-white">
+  <div className="text-center space-y-10">
+    ## {frontmatter.title}
+    
+    <Picture src="https://mdx-logo.now.sh" alt="article_header" position="middle" />
+
+    Published on {new Date(frontmatter.date).toLocaleDateString("en-UK")} <br/> By Patryk Slowinski
+  </div>
+</Container>

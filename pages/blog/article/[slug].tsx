@@ -2,16 +2,8 @@ import React, { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { getSingleArticle, getAllArticles } from '../../../blog/blogHelper';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
-import { CodeBlock, Link, Header, List } from '../../../components/blog/article/mdx';
-
-interface IArticleMetaData {
-  title: string;
-  seoTitle: string;
-  abstract: string;
-  isPublished: boolean;
-  publishedOn: Date;
-}
+import { CodeBlock, Link, Header, List, Delete } from '../../../components/blog/article/mdx';
+import BlogArticleLayout, { IArticleMetaData } from '../../../components/blog/BlogArticleLayout';
 
 type ArticleProps = {
   code: string;
@@ -20,6 +12,7 @@ type ArticleProps = {
   };
 };
 
+// https://mdxjs.com/getting-started#markdown
 const components = {
   h1: (props) => {
     const extendedProps = {
@@ -79,6 +72,7 @@ const components = {
   },
   li: List.ListItem,
   a: Link,
+  del: Delete,
   code: CodeBlock
 };
 
@@ -86,15 +80,10 @@ const Article = (props: ArticleProps): JSX.Element => {
   const { code, frontmatter } = props;
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
-  const { title } = frontmatter as IArticleMetaData; // , seoTitle, abstract, publishedOn
-
   return (
-    <>
-      <Head>
-        <title>Patryk Slowinski | {title}</title>
-      </Head>
+    <BlogArticleLayout metaData={frontmatter as IArticleMetaData}>
       <Component components={components} />
-    </>
+    </BlogArticleLayout>
   );
 };
 
