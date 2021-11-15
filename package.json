@@ -42,7 +42,7 @@
     "@marko/jest": "^3.2.3",
     "@next/bundle-analyzer": "^11.1.2",
     "@react-three/fiber": "^7.0.6",
-    "@testing-library/dom": "^8.1.0",
+    "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/gtag.js": "^0.0.7",
