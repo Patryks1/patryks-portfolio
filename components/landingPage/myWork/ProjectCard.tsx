@@ -7,27 +7,35 @@ import { IProjectInformation } from '../../../interfaces/landingPage.interfaces'
 
 interface IProjectCardProps {
   project: IProjectInformation;
-  key: string;
   grid: Grid;
 }
 
-const ProjectCard = (props: IProjectCardProps): JSX.Element => {
-  const { project } = props;
+const ProjectCard = ({ project }: IProjectCardProps): JSX.Element => {
+  const { description, blog, previewUrl, github, image } = project;
 
   const renderProjectDetail = (side: string): JSX.Element => (
     <div className={`project_card__${side}`}>
       <div className="absolute top-0 left-0 w-full h-full bg-gray-700 flex flex-col p-2 justify-between">
-        <h1>{project.description}</h1>
-        <div className={`flex ${project.blog ? 'justify-between' : 'justify-center'} `}>
-          {project.blog && (
-            <Link href={`/blog/${project.blog}`}>
+        <h1>{description}</h1>
+        <div className={`flex ${blog || previewUrl ? 'justify-between' : 'justify-center'} `}>
+          {blog && (
+            <Link href={`/blog/${blog}`}>
               <h1 className="p-2 bg-secondary-500 rounded-md cursor-pointer hover:opacity-90">
                 View more
               </h1>
             </Link>
           )}
+          {previewUrl && (
+            <a
+              href={previewUrl}
+              target="_blank"
+              className="p-2 bg-secondary-500 rounded-md cursor-pointer hover:opacity-90"
+              rel="noreferrer">
+              Preview
+            </a>
+          )}
           <a
-            href={project.github}
+            href={github}
             target="_blank"
             rel="noreferrer"
             aria-label="github"
@@ -41,8 +49,8 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
 
   return (
     <div
-      className="overflow-hidden relative w-full h-40"
-      style={{ backgroundImage: `url(${project.image})`, objectFit: 'contain' }}>
+      className="overflow-hidden relative w-full h-40 bg-cover bg-center"
+      style={{ backgroundImage: `url(${image})`, backgroundSize: '100% 100%' }}>
       {renderProjectDetail('right')}
       {renderProjectDetail('left')}
       {renderProjectDetail('top')}
@@ -68,7 +76,7 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
 
   const renderProjectDetail = (): JSX.Element => (
     <div className="absolute top-0 left-0">
-      <h1>{project.description}</h1>
+      <h1>{description}</h1>
     </div>
   );
 
@@ -179,7 +187,7 @@ const ProjectCard = (props: IProjectCardProps): JSX.Element => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       ref={boxRef}>
-      <Image src={project.image} alt="project_pic" layout="fill" className="object-fill" />
+      <Image src={image} alt="project_pic" layout="fill" className="object-fill" />
       <div className="overlay" ref={overlayRef}></div>
     </div>
   );

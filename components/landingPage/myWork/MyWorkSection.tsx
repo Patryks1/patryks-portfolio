@@ -6,14 +6,13 @@ import { FilterType, IProjectInformation } from '../../../interfaces/landingPage
 import ProjectCard from './ProjectCard';
 
 const projects: IProjectInformation[] = [
-  {
-    title: 'Screenshot Tool',
-    image: '/images/projects/screenshotTool.png',
-    description: 'Part of my ongoing dev tool box, A light weight screenshot tool made in C# / JS',
-    github: 'https://github.com/Patryks1/ScreenshotTool',
-    tags: [FilterType.Backend, FilterType.Frontend],
-    blog: 'test'
-  },
+  // {
+  //   title: 'Screenshot Tool',
+  //   image: '/images/projects/screenshotTool.png',
+  //   description: 'Part of my ongoing dev tool box, A light weight screenshot tool made in C# / JS',
+  //   github: 'https://github.com/Patryks1/ScreenshotTool',
+  //   tags: [FilterType.Backend, FilterType.Frontend]
+  // },
   {
     title: 'Next JS / Tailwindcss template',
     image: '/images/projects/nextJsTemplateTailwindcss.png',
@@ -28,25 +27,25 @@ const projects: IProjectInformation[] = [
       'I was curious to see if Quakes fast square root would be accurate and fast in C#, Spoiler its not',
     github: 'https://github.com/Patryks1/Quake-SquareRoot-CS-Test',
     tags: [FilterType.Backend]
-  }
-];
-
-/*
-{
-    title: 'Smart Clock (WIP)',
-    image: '/images/projects/screenshotTool.png',
-    description: 'Work in progress',
-    tags: [FilterType.Backend, FilterType.Frontend, FilterType.Hardware],
-    github: 'https://github.com/Patryks1/SmartClock'
   },
   {
-    title: 'Listivo (WIP)',
-    image: '/images/projects/listivo.png',
-    description: 'Work in progress',
-    github: 'https://github.com/Patryks1/listivo',
+    title: 'This portfolio',
+    image: '/images/projects/portfolio.png',
+    description:
+      'You can view all the code for this portfolio on my github, I also made this website using React and Tailwindcss',
+    github: 'https://github.com/Patryks1/patryks-portfolio',
     tags: [FilterType.Backend, FilterType.Frontend]
+  },
+  {
+    title: 'rubik',
+    image: '/images/projects/rubik-cube.png',
+    description:
+      'This was a quick coding test i did in 3h for TLC, it was a test to see if i could simulate a 2d flat rubik cube with a multi dimensional array.',
+    github: 'https://github.com/Patryks1/rubik',
+    previewUrl: 'https://rubik-pi.vercel.app/',
+    tags: [FilterType.Frontend]
   }
-*/
+];
 
 const MyWorkSection = ({ size }): JSX.Element => {
   const { width } = size;
@@ -97,7 +96,6 @@ const MyWorkSection = ({ size }): JSX.Element => {
           {renderFilter('All', FilterType.All)}
           {renderFilter('Frontend', FilterType.Frontend)}
           {renderFilter('Backend', FilterType.Backend)}
-          {renderFilter('Hardware', FilterType.Hardware)}
         </FadeInSection>
         <FadeInSection className="h-full w-full">
           <StackGrid

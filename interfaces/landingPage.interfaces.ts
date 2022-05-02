@@ -6,11 +6,11 @@ export interface IProjectInformation {
   image?: string;
   github?: string;
   blog?: string;
+  previewUrl?: string;
 }
 
 export enum FilterType {
   All,
   Frontend,
-  Backend,
-  Hardware
+  Backend
 }

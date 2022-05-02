@@ -26,7 +26,7 @@ const MyExperience = (): JSX.Element => {
         />
         <Experience
           startDate="2018"
-          endDate="Current"
+          endDate="2021"
           position="right"
           job="Aviva"
           jobTitle="Full stack software developer"
@@ -54,6 +54,73 @@ const MyExperience = (): JSX.Element => {
             'JSON',
             'SOLID',
             'TDD / BDD',
+            'and more'
+          ]}
+        />
+        <Experience
+          startDate="2021"
+          endDate="2021"
+          position="left"
+          job="Spark Universe (Contract)"
+          jobTitle="Full stack software developer"
+          contentPoints={[
+            'Creating two optimized desktop applications using Tauri, React and Rust with focus on minimal ram usage and security.',
+            'Created a custom UI library tailored to the theme using React, Rollup and Storybook for documentation.',
+            'Code Reviews',
+            'Working with Tauri, Rust, React and redux. In order to create a desktop applications'
+          ]}
+          techTools={[
+            'Tauri',
+            'TS / JS',
+            'React',
+            'Redux',
+            'Gitlab',
+            'Linear',
+            'GIT',
+            'REST',
+            'Tailwindcss',
+            'JSON',
+            'Rust',
+            'and more'
+          ]}
+        />
+        <Experience
+          startDate="2021"
+          endDate="Current"
+          position="right"
+          job="Advanced People Strategies"
+          jobTitle="Senior Software Engineer"
+          contentPoints={[
+            'Created a custom React component library using react, rollup and storybook.',
+            'Setup CI/CD pipelines in Azure devops.',
+            'Setup Azure user permissions and policies.',
+            'Worked with ISO 27001 security and GDPR standards.',
+            'Worked in agile 2 week sprints. (Scrum)',
+            'Code reviews',
+            'Mentored an junior developer.',
+            'Setup Loki and grafana self host logging & metrics.',
+            'Umbraco (C#, CMS).',
+            'Hiring and onboarding new developers.',
+            'Created a node.js api, that would SSR a react application and generate a report using puppeteer that matched the one user has been configuring in previews. saving a lot of time when creating new report templates that business provides'
+          ]}
+          techTools={[
+            'ASP.NET/C# Core 5+',
+            'TS / JS',
+            'React',
+            'Redux',
+            'Azure',
+            'MS SQL',
+            'GIT',
+            'REST',
+            'CQRS',
+            'SEQ',
+            'JSON',
+            'SOLID',
+            'Umbraco',
+            'Tailwindcss',
+            'Storybook',
+            'Puppeteer',
+            'Loki',
             'and more'
           ]}
         />
