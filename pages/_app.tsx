@@ -4,6 +4,7 @@ import { useRouter } from 'next/dist/client/router';
 import React, { useEffect } from 'react';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
+import '../styles/devicons.css';
 import * as gtag from '../util/gtag';
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
