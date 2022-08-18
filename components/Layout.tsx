@@ -18,14 +18,6 @@ const Layout = (props: IProps): JSX.Element => {
     <React.Fragment>
       <Head>
         <title>Patryk Slowinski | Portfolio</title>
-
-        {
-          // TODO: Replace this with package, SVG loader does not want to work might need some kind of plugin
-        }
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"
-        />
       </Head>
       <div className="overflow-x-hidden">
         {!isLoading && <Navigation />}

@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionTitle, FadeInSection } from '../../Shared';
 import dynamic from 'next/dynamic';
 import SkillsContainer from './SkillsContainer';
+import Image from 'next/image';
 
 const ToolsScene = dynamic(() => import('./tools/ToolsScene'));
 const MyExperience = dynamic(() => import('./MyExperience/MyExperience'));
@@ -15,10 +16,12 @@ const AboutMeSection = (): JSX.Element => {
       <div className="flex flex-col text-center w-full">
         <div className="flex flex-col md:flex-row">
           <FadeInSection className="flex flex-col space-y-4 p-20 md:p-10" direction="right">
-            <img
-              src="./images/profile_pic.jpg"
+            <Image
+              src="/images/profile_pic.webp"
               alt="profile"
-              className="rounded-full transform sm:transform-gpu hover:scale-110 ease-in-out duration-500"
+              width="1000"
+              height="1000"
+              className="rounded-full"
             />
             <h1 className="font-semibold">Patryk Slowinski</h1>
           </FadeInSection>

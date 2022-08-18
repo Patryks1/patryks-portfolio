@@ -8,21 +8,21 @@ import ProjectCard from './ProjectCard';
 const projects: IProjectInformation[] = [
   // {
   //   title: 'Screenshot Tool',
-  //   image: '/images/projects/screenshotTool.png',
+  //   image: '/images/projects/screenshotTool.webp',
   //   description: 'Part of my ongoing dev tool box, A light weight screenshot tool made in C# / JS',
   //   github: 'https://github.com/Patryks1/ScreenshotTool',
   //   tags: [FilterType.Backend, FilterType.Frontend]
   // },
   {
     title: 'Next JS / Tailwindcss template',
-    image: '/images/projects/nextJsTemplateTailwindcss.png',
+    image: '/images/projects/nextJsTemplateTailwindcss.webp',
     description: 'Quick starter template that is made up of Next.js, Mongoose and tailwindcss.',
     github: 'https://github.com/Patryks1/nextjs-tailwindcss-mongoose-template',
     tags: [FilterType.Backend, FilterType.Frontend]
   },
   {
     title: 'Quake Square root',
-    image: '/images/projects/quakeCs.png',
+    image: '/images/projects/quakeCs.webp',
     description:
       'I was curious to see if Quakes fast square root would be accurate and fast in C#, Spoiler its not',
     github: 'https://github.com/Patryks1/Quake-SquareRoot-CS-Test',
@@ -30,7 +30,7 @@ const projects: IProjectInformation[] = [
   },
   {
     title: 'This portfolio',
-    image: '/images/projects/portfolio.png',
+    image: '/images/projects/portfolio.webp',
     description:
       'You can view all the code for this portfolio on my github, I also made this website using React and Tailwindcss',
     github: 'https://github.com/Patryks1/patryks-portfolio',
@@ -38,7 +38,7 @@ const projects: IProjectInformation[] = [
   },
   {
     title: 'rubik',
-    image: '/images/projects/rubik-cube.png',
+    image: '/images/projects/rubik-cube.webp',
     description:
       'This was a quick coding test i did in 3h for TLC, it was a test to see if i could simulate a 2d flat rubik cube with a multi dimensional array.',
     github: 'https://github.com/Patryks1/rubik',

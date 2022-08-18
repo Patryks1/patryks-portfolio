@@ -2085,6 +2085,11 @@
     "defined" "^1.0.0"
     "minimist" "^1.2.6"
 
+"devicons-react@^1.2.4":
+  "integrity" "sha512-y4f7AeYykOP1/S1jkuP789bQ8MUyQxr+SAPa4AXsIjaKLca5nh2b5QEjlD7lZViQQrtH39nzE162ccVNVelZGA=="
+  "resolved" "https://registry.npmjs.org/devicons-react/-/devicons-react-1.2.4.tgz"
+  "version" "1.2.4"
+
 "didyoumean@^1.2.2":
   "integrity" "sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw=="
   "resolved" "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz"
