@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface IExperienceProps {
+export interface IExperience {
   startDate: string;
   endDate: string;
   position: 'left' | 'right';
@@ -10,7 +10,7 @@ interface IExperienceProps {
   techTools: string[];
 }
 
-const Experience = (props: IExperienceProps): JSX.Element => {
+const Experience = (props: IExperience): JSX.Element => {
   const { startDate, endDate, position, jobTitle, job, contentPoints, techTools } = props;
   const isLeftPosition: boolean = position === 'left';
 

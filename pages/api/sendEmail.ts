@@ -42,11 +42,11 @@ const handler = async (
 
       const mailResponse = await transporter.sendMail(mailOptions);
 
-      if (mailResponse) {
-        return res.status(200).json({ detail: 'Message sent!', method: 'POST', status: 200 });
+      if (!mailResponse) {
+        return res.status(500).json({ detail: 'Error sending email', method: 'POST', status: 500 });
       }
 
-      return res.status(500).json({ detail: 'Error sending email', method: 'POST', status: 500 });
+      return res.status(200).json({ detail: 'Message sent!', method: 'POST', status: 200 });
     }
     default: {
       res.setHeader('Allow', ['POST']);
