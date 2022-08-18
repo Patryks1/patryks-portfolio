@@ -55,7 +55,6 @@ const Blob = (): JSX.Element => {
           <sphereBufferGeometry args={[1, 64, 64]} />
           <AnimatedMaterial
             color="hotpink"
-            skinning={0}
             distort={distortion}
             envMapIntensity={env}
             clearcoat={0.5}

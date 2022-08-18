@@ -18,12 +18,7 @@ const dbConnect = async (): Promise<void> => {
   }
 
   const db = await mongoose.connect(
-    `${process.env.MONGODB_URI}/${process.env.MONGODB_DB}?retryWrites=true&w=majority`,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false
-    }
+    `${process.env.MONGODB_URI}/${process.env.MONGODB_DB}?retryWrites=true&w=majority`
   );
 
   cachedConnection.isConnected = db.connections[0].readyState;

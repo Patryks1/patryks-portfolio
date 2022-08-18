@@ -1,4 +1,5 @@
 import { OrbitControls } from '@react-three/drei';
+import { ThreeEvent } from '@react-three/fiber';
 import React, { useRef } from 'react';
 
 interface ControlsWrapperProps {
@@ -14,7 +15,7 @@ const ControlsWrapper = (props: ControlsWrapperProps): JSX.Element => {
     <OrbitControls
       enabled={canUseControls}
       ref={controlsRef}
-      onPointerDown={(e) => e.preventDefault()}
+      onPointerDown={(e: ThreeEvent<PointerEvent>) => e.stopPropagation()}
     />
   );
 };

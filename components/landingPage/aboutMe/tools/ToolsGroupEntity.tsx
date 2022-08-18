@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
-import { Mesh, Vector3 } from 'three';
+import { Group, Vector3 } from 'three';
 import TextWrapper from './TextWrapper';
 
 const ToolsGroupEntity = (): JSX.Element => {
@@ -36,7 +36,7 @@ const ToolsGroupEntity = (): JSX.Element => {
     'SOLID'
   ];
 
-  const groupRef = useRef<Mesh>();
+  const groupRef = useRef<Group>();
   useFrame(({ clock }) => {
     groupRef.current.rotation.x = clock.getElapsedTime() / 10;
   });

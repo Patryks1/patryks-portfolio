@@ -2,9 +2,9 @@ import React from 'react';
 import { SectionTitle, FadeInSection } from '../../Shared';
 import dynamic from 'next/dynamic';
 import SkillsContainer from './SkillsContainer';
-import MyExperience from './MyExperience/MyExperience';
 
 const ToolsScene = dynamic(() => import('./tools/ToolsScene'));
+const MyExperience = dynamic(() => import('./MyExperience/MyExperience'));
 
 const AboutMeSection = (): JSX.Element => {
   return (
