@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { IRestBaseResponse } from '../../interfaces/contact.interfaces';
 import sanitizeHtml from 'sanitize-html';
-import * as EmailValidator from 'email-validator';
 import transporter from '../../lib/gmailTransporter';
 
 const handler = async (
@@ -17,9 +16,9 @@ const handler = async (
       const sanitizedLastName = sanitizeHtml(body.lastName);
       const sanitizedMessage = sanitizeHtml(body.message);
 
-      if (!EmailValidator.validate(sanitizedEmail)) {
-        return res.status(200).json({ detail: 'Invalid Email', method: 'POST', status: 400 });
-      }
+      // if (!EmailValidator.validate(sanitizedEmail)) {
+      //   return res.status(200).json({ detail: 'Invalid Email', method: 'POST', status: 400 });
+      // }
 
       if (!sanitizedMessage) {
         return res.status(200).json({ detail: 'Message is required', method: 'POST', status: 400 });
