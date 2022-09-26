@@ -20,7 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@react-spring/three": "^9.5.2",
     "@react-three/cannon": "^6.4.0",
-    "@react-three/drei": "^9.22.7",
+    "@react-three/drei": "^9.32.3",
     "@tailwindui/react": "^0.1.1",
     "email-validator": "^2.0.4",
     "gsap": "^3.11.0",
